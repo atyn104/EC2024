@@ -29,7 +29,7 @@ arts_df = load_data(url)
 if arts_df.empty:
     st.stop()
     
-st.subheader("Raw Data Preview")
+st.subheader("1.Raw Data Preview")
 st.dataframe(arts_df.head(), use_container_width=True)
     
     # --- Data Processing for Charts ---
@@ -44,7 +44,7 @@ if 'Gender' in arts_df.columns:
     # --- Plotly Pie Chart (Distribution of Gender) ---
 
     with col1:
-         st.subheader("Distribution of Gender in Arts Faculty (Pie Chart)")
+         st.subheader("2.Distribution of Gender in Arts Faculty (Pie Chart)")
     
     # Use plotly.express to create a pie chart
     fig_pie = px.pie(
@@ -65,7 +65,7 @@ if 'Gender' in arts_df.columns:
     # --- Plotly Bar Chart (Distribution of Gender) ---
 
     with col2:
-         st.subheader("Distribution of Gender in Arts Faculty (Bar Chart)")
+         st.subheader("3. Distribution of Gender in Arts Faculty (Bar Chart)")
 
     # Use plotly.express to create a bar chart
     fig_bar = px.bar(
