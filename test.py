@@ -39,7 +39,7 @@ if 'Gender' in arts_df.columns:
     gender_counts_df = arts_df['Gender'].value_counts().reset_index()
     gender_counts_df.columns = ['Gender', 'Count']
 
-    col1, col2 = st.coloumns(2)
+    col1, col2 = st.columns(2)
 
     # --- Plotly Pie Chart (Distribution of Gender) ---
 
