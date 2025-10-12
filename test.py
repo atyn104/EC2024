@@ -77,7 +77,7 @@ if 'Gender' in arts_df.columns:
     )
     
        # Optional: Customize layout for better appearance
-       fig_bar.update_layout(
+    fig_bar.update_layout(
            xaxis_title='Gender', 
            yaxis_title='Count'
            xaxis={'categoryorder': 'total descending'}
