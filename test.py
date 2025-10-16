@@ -101,7 +101,7 @@ st.markdown("---")
 study_medium_counts = arts_df['H.S.C or Equivalent study medium'].value_counts()
 
 # Create the Matplotlib figure and axes
-fig, ax = plt.subplots(figsize=(8, 6))
+fig, ax = plt.subplots
 
 # Create a bar chart on the axes
 study_medium_counts.plot(kind='bar', ax=ax)
@@ -127,7 +127,7 @@ st.markdown("---")
 coaching_counts = arts_df['Did you ever attend a Coaching center?'].value_counts()
 
 # Create the Matplotlib figure and axes
-fig, ax = plt.subplots(figsize=(6, 4))
+fig, ax = plt.subplots
 
 # Create a bar chart on the axes
 coaching_counts.plot(kind='bar', ax=ax)
@@ -156,7 +156,7 @@ st.markdown("---")
 arts_program_counts = arts_df['Arts Program'].value_counts()
 
 # Create the Matplotlib figure and axes
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, ax = plt.subplots
 
 # Create a bar chart on the axes
 arts_program_counts.plot(kind='bar', ax=ax)
@@ -182,7 +182,7 @@ st.header("S.S.C (GPA) Distribution Analysis")
 st.markdown("---")
 
 # Create the Matplotlib figure and axes using the Object-Oriented approach
-fig, ax = plt.subplots(figsize=(8, 6))
+fig, ax = plt.subplots
 
 # Create the histogram on the axes object (ax)
 sns.histplot(data=arts_df, x='S.S.C (GPA)', kde=True, ax=ax)
