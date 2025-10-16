@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import matplotlib.pyplot as plt
 
 # URL for the data file
 url = "https://raw.githubusercontent.com/atyn104/EC2024/refs/heads/main/arts_faculty_data.csv"
