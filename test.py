@@ -146,3 +146,32 @@ plt.tight_layout()
 
 # Display the Matplotlib figure in Streamlit
 st.pyplot(fig)
+
+# Assuming 'arts_df' is already loaded as a pandas DataFrame
+
+st.header("Arts Program Distribution Analysis")
+st.markdown("---")
+
+# Count the occurrences of each Arts Program
+arts_program_counts = arts_df['Arts Program'].value_counts()
+
+# Create the Matplotlib figure and axes
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Create a bar chart on the axes
+arts_program_counts.plot(kind='bar', ax=ax)
+
+# Set title and labels
+ax.set_title('Distribution of Arts Programs')
+ax.set_xlabel('Arts Program')
+ax.set_ylabel('Count')
+
+# Set x-tick rotation and alignment for the labels
+# We use ax.set_xticklabels for better control over alignment ('ha' or horizontalalignment)
+ax.set_xticklabels(arts_program_counts.index, rotation=45, ha='right')
+
+# Adjust layout to prevent labels from overlapping
+plt.tight_layout()
+
+# Display the Matplotlib figure in Streamlit
+st.pyplot(fig)
