@@ -175,25 +175,3 @@ plt.tight_layout()
 
 # Display the Matplotlib figure in Streamlit
 st.pyplot(fig)
-
-# Assuming 'arts_df' is already loaded as a pandas DataFrame
-
-st.header("S.S.C (GPA) Distribution Analysis")
-st.markdown("---")
-
-# Create the Matplotlib figure and axes using the Object-Oriented approach
-fig, ax = plt.subplots(figsize=(8, 6))
-
-# Create the histogram on the axes object (ax)
-sns.histplot(data=arts_df, x='S.S.C (GPA)', kde=True, ax=ax)
-
-# Set title and labels using the axes object methods
-ax.set_title('Distribution of S.S.C (GPA)')
-ax.set_xlabel('S.S.C (GPA)')
-ax.set_ylabel('Frequency')
-
-# Adjust layout to prevent labels from overlapping
-plt.tight_layout()
-
-# Display the Matplotlib figure in Streamlit
-st.pyplot(fig)
