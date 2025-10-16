@@ -117,3 +117,32 @@ plt.tight_layout()
 
 # Display the Matplotlib figure in Streamlit
 st.pyplot(fig)
+
+# Assuming 'arts_df' is already loaded as a pandas DataFrame
+
+st.header("Coaching Center Attendance Analysis")
+st.markdown("---")
+
+# Count the occurrences of coaching center attendance
+coaching_counts = arts_df['Did you ever attend a Coaching center?'].value_counts()
+
+# Create the Matplotlib figure and axes
+fig, ax = plt.subplots(figsize=(6, 4))
+
+# Create a bar chart on the axes
+coaching_counts.plot(kind='bar', ax=ax)
+
+# Set title and labels
+ax.set_title('Distribution of Coaching Center Attendance')
+ax.set_xlabel('Attended Coaching Center')
+ax.set_ylabel('Count')
+
+# Set x-tick rotation (using ax.set_xticklabels for better control)
+# We set the labels explicitly to ensure rotation=0 is applied correctly to the labels
+ax.set_xticklabels(coaching_counts.index, rotation=0)
+
+# Adjust layout to prevent labels from overlapping
+plt.tight_layout()
+
+# Display the Matplotlib figure in Streamlit
+st.pyplot(fig)
