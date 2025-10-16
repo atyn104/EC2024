@@ -88,3 +88,31 @@ if 'Gender' in arts_df.columns:
 
 else:
     st.error("Could not load data. Please check the URL and your internet connection.")
+
+# --- Example DataFrame creation for testing if needed ---
+# data = {'H.S.C or Equivalent study medium': ['Bangla', 'English', 'Bangla', 'English', 'Bangla', 'Bangla']}
+# arts_df = pd.DataFrame(data)
+
+st.header("H.S.C or Equivalent Study Medium Analysis")
+st.markdown("---")
+
+# Count the occurrences of each study medium
+study_medium_counts = arts_df['H.S.C or Equivalent study medium'].value_counts()
+
+# Create the Matplotlib figure and axes
+fig, ax = plt.subplots(figsize=(8, 6))
+
+# Create a bar chart on the axes
+study_medium_counts.plot(kind='bar', ax=ax)
+
+# Set title and labels
+ax.set_title('Distribution of H.S.C or Equivalent Study Medium')
+ax.set_xlabel('Study Medium')
+ax.set_ylabel('Count')
+ax.tick_params(axis='x', rotation=45, ha='right')
+
+# Adjust layout to prevent labels from overlapping
+plt.tight_layout()
+
+# Display the Matplotlib figure in Streamlit
+st.pyplot(fig)
