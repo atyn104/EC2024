@@ -110,7 +110,7 @@ study_medium_counts.plot(kind='bar', ax=ax)
 ax.set_title('Distribution of H.S.C or Equivalent Study Medium')
 ax.set_xlabel('Study Medium')
 ax.set_ylabel('Count')
-ax.tick_params(axis='x', rotation=45, ha='right')
+ax.set_xticklabels(study_medium_counts.index, rotation=45, ha='right')
 
 # Adjust layout to prevent labels from overlapping
 plt.tight_layout()
