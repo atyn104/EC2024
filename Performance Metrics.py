@@ -66,8 +66,8 @@ st.markdown("---")
 # Example Context (assuming the previous code structure)
     
 st.subheader("3. HSC Score vs. Overall GPA")
-    required_cols = ['HSC', 'Overall'] # <--- MUST ALIGN WITH THE LINE ABOVE
-    if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
+required_cols = ['HSC', 'Overall'] # <--- MUST ALIGN WITH THE LINE ABOVE
+if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
             
             # 1. Initialize Figure and Axes
             fig, ax = plt.subplots(figsize=(8, 6))
