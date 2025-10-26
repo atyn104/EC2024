@@ -76,7 +76,6 @@ if 'Gender' in Business_Administration_df.columns:
        inner='quartile',
        ax=ax
 )
-
     ax.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
     ax.xlabel('Has a Job', fontsize=12)
     ax.ylabel('Overall GPA', fontsize=12)
