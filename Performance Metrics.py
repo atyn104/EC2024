@@ -91,6 +91,10 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
 
      # --- Visualization ---
 
+st.subheader("3. Overall GPA Distribution by Job Status and Gender")
+required_cols = ['Job', 'Overall', 'Gender'] # <--- MUST ALIGN WITH THE LINE ABOVE
+if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
+    
 plt.figure(figsize=(14, 6))
 
 sns.violinplot(
