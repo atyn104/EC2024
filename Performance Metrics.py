@@ -68,7 +68,7 @@ if 'Gender' in Business_Administration_df.columns:
 with col2:
        st.subheader("3. HSC Score vs. Overall GPA")
        
-            required_cols = ['HSC', 'Overall']
+            required_cols =['HSC', 'Overall']
 
         if all(col in research_df.columns for col in required_cols):
             
