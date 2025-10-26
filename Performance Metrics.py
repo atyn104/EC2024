@@ -77,7 +77,7 @@ with col2:
             sns.regplot(
                 x='HSC',
                 y='Overall',
-                data=research_df, # Use your defined DataFrame
+                data=Business_Administration_df, # Use your defined DataFrame
                 scatter_kws={'alpha':0.6},
                 line_kws={'color':'red'},
                 ax=ax # IMPORTANT: Plot on the defined Axes
