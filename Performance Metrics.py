@@ -104,14 +104,13 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
         data=Business_Administration_df,
         palette={'Male': 'skyblue', 'Female': 'lightcoral'},
         split=True,
-        inner='quartile', # Adds lines for quartile and median
-        ax=ax
+        inner='quartile' # Adds lines for quartile and median
 )
-        ax.set.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
-        ax.set.xlabel('Has a Job', fontsize=12)
-        ax.set.ylabel('Overall GPA', fontsize=12)
-        ax.set.legend(title='Gender')
-        ax.set.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
+        plt.xlabel('Has a Job', fontsize=12)
+        plt.ylabel('Overall GPA', fontsize=12)
+        plt.legend(title='Gender')
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
         plt.tight_layout()
         st.pyplot(fig, use_container_width=True)
 
