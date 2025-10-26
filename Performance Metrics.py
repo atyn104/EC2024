@@ -63,27 +63,6 @@ if 'Gender' in arts_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 
                 # --- Visualization ---
-import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
-import os
-
-# --- 1. Define the correct file path ---
-# Use a relative path assuming the CSV is in a 'data' folder
-csv_file_path = os.path.join('data', 'ResearchInformation3.csv')
-
-# Load the CSV file
-# Use try-except to handle potential file not found or decoding errors
-try:
-    df = pd.read_csv(csv_file_path)
-except FileNotFoundError:
-    print(f"Error: The file was not found at {csv_file_path}")
-    exit() # Stop execution if data isn't loaded
-except UnicodeDecodeError:
-    print("Error: Could not decode the file. Try specifying an encoding (e.g., encoding='latin-1').")
-    exit()
-
-# --- 2. Create and Save the Visualization ---
 
 plt.figure(figsize=(10, 6))
 
@@ -104,14 +83,10 @@ plt.legend(title='Gender')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-# --- 3. Save the output image file ---
-# Create an 'images' directory if it doesn't exist
-output_dir = 'images'
-os.makedirs(output_dir, exist_ok=True)
-output_path = os.path.join(output_dir, 'overall_gpa_job_gender_violinplot.png')
+ax.set_xticklabels(Business_Administration_Department_counts.index, rotation=45, ha='right')
 
-# Save the plot to the file path
-plt.savefig(output_path)
-plt.close() # Close the plot to free up memory
+# Adjust layout to prevent labels from overlapping
+plt.tight_layout()
 
-print(f"Visualization successfully generated and saved to: {output_path}")
+# Display the Matplotlib figure in Streamlit
+st.pyplot(fig)
