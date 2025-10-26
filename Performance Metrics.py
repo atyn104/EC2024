@@ -74,11 +74,13 @@ sns.regplot(
     df=Business_Administration_df,
     scatter_kws={'alpha':0.6},  # Transparency for data points
     line_kws={'color':'red'}    # Color for the regression line
+    ax=ax
 )
 
 # Apply titles and labels
-plt.title('Relationship Between HSC Score and Overall GPA', fontsize=14)
-plt.xlabel('HSC Score', fontsize=12)
-plt.ylabel('Overall GPA', fontsize=12)
-plt.grid(axis='both', linestyle='--', alpha=0.5)
+ax.set.title('Relationship Between HSC Score and Overall GPA', fontsize=14)
+ax.set.xlabel('HSC Score', fontsize=12)
+ax.set.ylabel('Overall GPA', fontsize=12)
+ax.set.grid(axis='both', linestyle='--', alpha=0.5)
 plt.tight_layout()
+st.pyplot(fig)
