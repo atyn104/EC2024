@@ -26,17 +26,17 @@ def load_data(data_url):
         st.error(f"An error occurred while loading the file from the URL: {e}")
         return pd.Dataframe()
 
-arts_df = load_data(url)
+Business_Administration_df = load_data(url)
 
-if arts_df.empty:
+if Business_Administration_df.empty:
     st.stop()
     
 st.subheader("1.Raw Data Preview")
-st.dataframe(arts_df.head(), use_container_width=True)
+st.dataframe(Business_Administration_df.head(), use_container_width=True)
 
-if 'Gender' in arts_df.columns:
+if 'Gender' in Business_Administration_df.columns:
     # Count the occurrences of each gender
-    gender_counts_df = arts_df['Gender'].value_counts().reset_index()
+    gender_counts_df = Business_Administration_df['Gender'].value_counts().reset_index()
     gender_counts_df.columns = ['Gender', 'Count']
 
     col1, col2 = st.columns(2)
@@ -63,27 +63,28 @@ if 'Gender' in arts_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 
                 # --- Visualization ---
+if 'Job' in Business_Administration_df.columns and 'Overall' in Business_Administration_df.columns:
+        with col2:
+            st.subheader("3. Overall GPA by Job Status and Gender")
+            
+    fig,ax=plt.figure(figsize=(10, 6))
 
-plt.figure(figsize=(10, 6))
-
-sns.violinplot(
-    x='Job',
-    y='Overall',
-    hue='Gender',
-    data=df,
-    palette={'Male': 'skyblue', 'Female': 'lightcoral'},
-    split=True,
-    inner='quartile',
-    ax=ax
+    sns.violinplot(
+       x='Job',
+       y='Overall',
+       hue='Gender',
+       data=Business_Administration_df,
+       palette={'Male': 'skyblue', 'Female': 'lightcoral'},
+       split=True,
+       inner='quartile',
+       ax=ax
 )
 
-ax.plt.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
-ax.plt.xlabel('Has a Job', fontsize=12)
-ax.plt.ylabel('Overall GPA', fontsize=12)
-ax.plt.legend(title='Gender')
-ax.plt.grid(axis='y', linestyle='--', alpha=0.7)
+    ax.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
+    ax.xlabel('Has a Job', fontsize=12)
+    ax.ylabel('Overall GPA', fontsize=12)
+    ax.legend(title='Gender')
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
 
 plt.tight_layout()
 plt.show()
-
-
