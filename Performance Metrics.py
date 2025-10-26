@@ -64,22 +64,31 @@ if 'Gender' in Business_Administration_df.columns:
 
                 # --- Visualization ---
 
-# Initialize the figure
-plt.figure(figsize=(8, 6))
+# ... inside the with col2: block, or wherever you are plotting ...
 
-# sns.regplot includes the scatter plot and the linear regression line
-sns.regplot(
-    x='HSC',
-    y='Overall',
-    df=Business_Administration_df,
-    scatter_kws={'alpha':0.6},  # Transparency for data points
-    line_kws={'color':'red'}   # Color for the regression line
-)
+# Example Context (assuming the previous code structure)
+    if all(col in research_df.columns for col in required_cols):
+        with col2:
+            st.subheader("3. Overall GPA by Job Status and Gender")
+            
+            # 1. Initialize Figure and Axes
+            fig, ax = plt.subplots(figsize=(8, 6))
 
-# Apply titles and labels
-ax.set.title('Relationship Between HSC Score and Overall GPA', fontsize=14)
-ax.set.xlabel('HSC Score', fontsize=12)
-ax.set.ylabel('Overall GPA', fontsize=12)
-ax.set.grid(axis='both', linestyle='--', alpha=0.5)
-plt.tight_layout()
-st.pyplot(fig)
+            # 2. The regplot call and its arguments must align perfectly
+            sns.regplot(
+                x='HSC',
+                y='Overall',
+                data=research_df, # Use your defined DataFrame
+                scatter_kws={'alpha':0.6},
+                line_kws={'color':'red'},
+                ax=ax # IMPORTANT: Plot on the defined Axes
+            )
+
+            # 3. Apply labels and titles using the 'ax' object
+            ax.set_title('Relationship Between HSC Score and Overall GPA', fontsize=14)
+            ax.set_xlabel('HSC Score', fontsize=12)
+            ax.set_ylabel('Overall GPA', fontsize=12)
+            ax.grid(axis='both', linestyle='--', alpha=0.5)
+
+            plt.tight_layout()
+            st.pyplot(fig, use_container_width=True)
