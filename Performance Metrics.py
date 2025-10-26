@@ -98,7 +98,7 @@ sns.violinplot(
     x='Job',
     y='Overall',
     hue='Gender',
-    data=df,
+    data=Business_Administration_df,
     palette={'Male': 'skyblue', 'Female': 'lightcoral'},
     split=True,
     inner='quartile' # Adds lines for quartile and median
