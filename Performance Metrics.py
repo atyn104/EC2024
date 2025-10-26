@@ -69,8 +69,7 @@ with col2:
        st.subheader("3. HSC Score vs. Overall GPA")
        
             required_cols =['HSC', 'Overall']
-
-        if all(col in research_df.columns for col in required_cols):
+if all(col in research_df.columns for col in required_cols):
             
             # 1. Initialize Figure and Axes
             fig, ax = plt.subplots(figsize=(8, 6))
