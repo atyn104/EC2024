@@ -66,9 +66,9 @@ if 'Gender' in Business_Administration_df.columns:
 
 # Example Context (assuming the previous code structure)
 with col2:
-       st.subheader("3. HSC Score vs. Overall GPA")
-    required_cols = ['HSC', 'Overall']
-if all(col in research_df.columns for col in required_cols):
+    st.subheader("3. HSC Score vs. Overall GPA")
+    required_cols = ['HSC', 'Overall'] # <--- MUST ALIGN WITH THE LINE ABOVE
+    if not research_df.empty and all(col in research_df.columns for col in required_cols):
             
             # 1. Initialize Figure and Axes
             fig, ax = plt.subplots(figsize=(8, 6))
