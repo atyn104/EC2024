@@ -67,7 +67,7 @@ if 'Job' in Business_Administration_df.columns and 'Overall' in Business_Adminis
         with col2:
             st.subheader("3. Overall GPA by Job Status and Gender")
             
-    fig,ax=plt.subplots(figsize=(10, 6))
+    fig, ax= plt.subplots(figsize=(10, 6))
 
     sns.violinplot(
        x='Job',
