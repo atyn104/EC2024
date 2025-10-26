@@ -20,7 +20,7 @@ st.markdown("---")
 @st.cache_data
 def load_data(data_url):
     try:
-        df = pd.read_csv(url)
+        research_df = pd.read_csv(url)
         return df
     except Exception as e:
         st.error(f"An error occurred while loading the file from the URL: {e}")
