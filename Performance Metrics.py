@@ -63,23 +63,22 @@ if 'Gender' in Business_Administration_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 
                 # --- Visualization ---
-            
-    fig, ax= plt.subplots(figsize=(10, 6))
 
-    sns.violinplot(
-       x='Job',
-       y='Overall',
-       hue='Gender',
-       data=Business_Administration_df,
-       palette={'Male': 'skyblue', 'Female': 'lightcoral'},
-       split=True,
-       inner='quartile',
-       ax=ax
+# Initialize the figure
+plt.figure(figsize=(8, 6))
+
+# sns.regplot includes the scatter plot and the linear regression line
+sns.regplot(
+    x='HSC',
+    y='Overall',
+    data=df,
+    scatter_kws={'alpha':0.6},  # Transparency for data points
+    line_kws={'color':'red'}    # Color for the regression line
 )
-    ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
-    ax.set_xlabel('Has a Job', fontsize=12)
-    ax.set_ylabel('Overall GPA', fontsize=12)
-    ax.legend(title='Gender')
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-    plt.tight_layout()
-    plt.show()
+
+# Apply titles and labels
+plt.title('Relationship Between HSC Score and Overall GPA', fontsize=14)
+plt.xlabel('HSC Score', fontsize=12)
+plt.ylabel('Overall GPA', fontsize=12)
+plt.grid(axis='both', linestyle='--', alpha=0.5)
+plt.tight_layout()
