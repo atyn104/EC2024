@@ -12,7 +12,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("Distribution of Gender in Arts Faculty")
+st.title("Distribution of Gender in Business Administration Department")
 st.markdown("---")
 
 # Function to load data with caching
