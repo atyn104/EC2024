@@ -34,17 +34,17 @@ if Business_Administration_df.empty:
 st.subheader("1.Raw Data Preview")
 st.dataframe(Business_Administration_df.head(), use_container_width=True)
 
-if 'Gender' in Business_Administration_df.columns:
-    # Count the occurrences of each gender
-    gender_counts_df = Business_Administration_df['Gender'].value_counts().reset_index()
-    gender_counts_df.columns = ['Gender', 'Count']
 
     col1, col2 = st.columns(2)
 
     # --- Plotly Pie Chart (Distribution of Gender) ---
 
-    with col1:
-         st.subheader("2.Distribution of Gender in Business Administration Department")
+st.subheader("2.Distribution of Gender in Business Administration Department")
+    
+if 'Gender' in Business_Administration_df.columns:
+    # Count the occurrences of each gender
+    gender_counts_df = Business_Administration_df['Gender'].value_counts().reset_index()
+    gender_counts_df.columns = ['Gender', 'Count']
     
     # Use plotly.express to create a pie chart
     fig_pie = px.pie(
@@ -61,12 +61,13 @@ if 'Gender' in Business_Administration_df.columns:
     
     # Display the Plotly chart in Streamlit
     st.plotly_chart(fig_pie, use_container_width=True)
+st.markdown("---")
 
                 # --- Visualization ---
 
 # Example Context (assuming the previous code structure)
-with col2:
-    st.subheader("3. HSC Score vs. Overall GPA")
+    
+st.subheader("3. HSC Score vs. Overall GPA")
     required_cols = ['HSC', 'Overall'] # <--- MUST ALIGN WITH THE LINE ABOVE
     if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
             
