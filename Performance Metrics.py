@@ -73,7 +73,7 @@ sns.regplot(
     y='Overall',
     df=Business_Administration_df,
     scatter_kws={'alpha':0.6},  # Transparency for data points
-    line_kws={'color':'red'}    # Color for the regression line
+    line_kws={'color':'red'},    # Color for the regression line
     ax=ax
 )
 
