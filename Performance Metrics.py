@@ -65,7 +65,7 @@ if 'Gender' in Business_Administration_df.columns:
                 # --- Visualization ---
 
 # Example Context (assuming the previous code structure)
-  with col2:
+with col2:
     st.subheader("3. HSC Score vs. Overall GPA")
     required_cols = ['HSC', 'Overall'] # <--- MUST ALIGN WITH THE LINE ABOVE
     if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
