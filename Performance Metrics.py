@@ -109,4 +109,5 @@ plt.ylabel('Overall GPA', fontsize=12)
 plt.legend(title='Gender')
 plt.grid(axis='y', linestyle='--', alpha=0.7)
 plt.tight_layout()
+st.pyplot(fig, use_container_width=True)
 
