@@ -70,22 +70,20 @@ sns.violinplot(
     x='Job',
     y='Overall',
     hue='Gender',
+    data=df,
     palette={'Male': 'skyblue', 'Female': 'lightcoral'},
     split=True,
     inner='quartile'
+    ax=ax
 )
 
-plt.title('Objective 1: Overall GPA Distribution by Job Status and Gender', fontsize=14)
-plt.xlabel('Has a Job', fontsize=12)
-plt.ylabel('Overall GPA', fontsize=12)
-plt.legend(title='Gender')
-plt.grid(axis='y', linestyle='--', alpha=0.7)
+ax.plt.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
+ax.plt.xlabel('Has a Job', fontsize=12)
+ax.plt.ylabel('Overall GPA', fontsize=12)
+ax.plt.legend(title='Gender')
+ax.plt.grid(axis='y', linestyle='--', alpha=0.7)
+
 plt.tight_layout()
+plt.show()
 
-ax.set_xticklabels(Business_Administration_Department_counts.index, rotation=45, ha='right')
 
-# Adjust layout to prevent labels from overlapping
-plt.tight_layout()
-
-# Display the Matplotlib figure in Streamlit
-st.pyplot(fig)
