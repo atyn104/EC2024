@@ -32,3 +32,32 @@ if arts_df.empty:
     
 st.subheader("1.Raw Data Preview")
 st.dataframe(arts_df.head(), use_container_width=True)
+
+if 'Gender' in arts_df.columns:
+    # Count the occurrences of each gender
+    gender_counts_df = arts_df['Gender'].value_counts().reset_index()
+    gender_counts_df.columns = ['Gender', 'Count']
+
+    col1, col2 = st.columns(2)
+
+    # --- Plotly Pie Chart (Distribution of Gender) ---
+
+    with col1:
+         st.subheader("2.Distribution of Gender in Business Administration Department")
+    
+    # Use plotly.express to create a pie chart
+    fig_pie = px.pie(
+        gender_counts_df, 
+        values='Count', 
+        names='Gender', 
+        title='Gender Distribution',
+        hole=0.4, # Optional: makes it a donut chart
+        color_discrete_sequence=px.colors.sequential.RdBu # Optional: custom colors
+    )
+    
+    # Update traces to show percentages inside the pie slices
+    fig_pie.update_traces(textposition='inside', textinfo='percent+label')
+    
+    # Display the Plotly chart in Streamlit
+    st.plotly_chart(fig_pie, use_container_width=True)
+
