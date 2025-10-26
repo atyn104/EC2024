@@ -70,6 +70,7 @@ if 'Gender' in Business_Administration_df.columns:
     if all(col in research_df.columns for col in required_cols):
         with col2:
             st.subheader("3. Overall GPA by Job Status and Gender")
+            required_cols = ['Job', 'Overall', 'Gender']
             
             # 1. Initialize Figure and Axes
             fig, ax = plt.subplots(figsize=(8, 6))
