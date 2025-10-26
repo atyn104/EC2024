@@ -71,19 +71,17 @@ with col2:
     if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
             
             # 1. Initialize Figure and Axes
-            fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(8, 6))
 
-            # 2. The regplot call and its arguments must align perfectly
-            sns.regplot(
-                x='HSC',
-                y='Overall',
-                data=Business_Administration_df, # Use your defined DataFrame
-                scatter_kws={'alpha':0.6},
-                line_kws={'color':'red'},
-                ax=ax # IMPORTANT: Plot on the defined Axes
+    sns.regplot(
+            x='HSC',
+            y='Overall',
+            data=Business_Administration_df, # Use your defined DataFrame
+            scatter_kws={'alpha':0.6},
+            line_kws={'color':'red'},
+            ax=ax # IMPORTANT: Plot on the defined Axes
             )
 
-            # 3. Apply labels and titles using the 'ax' object
             ax.set_title('Relationship Between HSC Score and Overall GPA', fontsize=14)
             ax.set_xlabel('HSC Score', fontsize=12)
             ax.set_ylabel('Overall GPA', fontsize=12)
