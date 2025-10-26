@@ -95,22 +95,22 @@ st.subheader("3. Overall GPA Distribution by Job Status and Gender")
 required_cols = ['Job', 'Overall', 'Gender'] # <--- MUST ALIGN WITH THE LINE ABOVE
 if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
     
-plt.figure(figsize=(14, 6))
+    plt.figure(figsize=(14, 6))
 
-sns.violinplot(
-    x='Job',
-    y='Overall',
-    hue='Gender',
-    data=Business_Administration_df,
-    palette={'Male': 'skyblue', 'Female': 'lightcoral'},
-    split=True,
-    inner='quartile' # Adds lines for quartile and median
+    sns.violinplot(
+        x='Job',
+        y='Overall',
+        hue='Gender',
+        data=Business_Administration_df,
+        palette={'Male': 'skyblue', 'Female': 'lightcoral'},
+        split=True,
+        inner='quartile' # Adds lines for quartile and median
 )
-plt.title('Overall GPA Distribution by Job Status and Genderr', fontsize=14)
-plt.xlabel('Has a Job', fontsize=12)
-plt.ylabel('Overall GPA', fontsize=12)
-plt.legend(title='Gender')
-plt.grid(axis='y', linestyle='--', alpha=0.7)
-plt.tight_layout()
-st.pyplot(fig, use_container_width=True)
+        plt.title('Overall GPA Distribution by Job Status and Genderr', fontsize=14)
+        plt.xlabel('Has a Job', fontsize=12)
+        plt.ylabel('Overall GPA', fontsize=12)
+        plt.legend(title='Gender')
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.tight_layout()
+        st.pyplot(fig, use_container_width=True)
 
