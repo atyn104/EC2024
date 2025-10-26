@@ -70,7 +70,6 @@ sns.violinplot(
     x='Job',
     y='Overall',
     hue='Gender',
-    data=df,
     palette={'Male': 'skyblue', 'Female': 'lightcoral'},
     split=True,
     inner='quartile'
