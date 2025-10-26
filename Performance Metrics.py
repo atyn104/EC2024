@@ -81,6 +81,5 @@ if 'Gender' in Business_Administration_df.columns:
     ax.set_ylabel('Overall GPA', fontsize=12)
     ax.legend(title='Gender')
     ax.grid(axis='y', linestyle='--', alpha=0.7)
-
-plt.tight_layout()
-plt.show()
+    plt.tight_layout()
+    plt.show()
