@@ -73,7 +73,7 @@ sns.violinplot(
     data=df,
     palette={'Male': 'skyblue', 'Female': 'lightcoral'},
     split=True,
-    inner='quartile'
+    inner='quartile',
     ax=ax
 )
 
