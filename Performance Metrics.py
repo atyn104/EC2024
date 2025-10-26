@@ -33,9 +33,7 @@ if Business_Administration_df.empty:
     
 st.subheader("1.Raw Data Preview")
 st.dataframe(Business_Administration_df.head(), use_container_width=True)
-
-
-    col1, col2 = st.columns(2)
+st.markdown("---")
 
     # --- Plotly Pie Chart (Distribution of Gender) ---
 
