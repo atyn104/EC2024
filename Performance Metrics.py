@@ -61,3 +61,64 @@ if 'Gender' in arts_df.columns:
     # Display the Plotly chart in Streamlit
     st.plotly_chart(fig_pie, use_container_width=True)
 
+                # --- Visualization ---
+def create_gpa_job_gender_violin_plot(df: pd.DataFrame):
+    """
+    Generates a split violin plot visualizing the distribution of Overall GPA
+    based on Job Status ('Job') and split by 'Gender'.
+
+    Args:
+        df (pd.DataFrame): The DataFrame containing 'Job', 'Overall', and 'Gender' columns.
+                           'Job' should be categorical (e.g., Yes/No),
+                           'Overall' should be the GPA score (numeric),
+                           'Gender' should be categorical (e.g., Male/Female).
+    """
+    # Set the size of the plot
+    plt.figure(figsize=(14, 6))
+
+    # Create the split violin plot
+    sns.violinplot(
+        x='Job',
+        y='Overall',
+        hue='Gender',
+        data=df,
+        palette={'Male': 'skyblue', 'Female': 'lightcoral'},
+        split=True,
+        inner='quartile' # Adds lines for quartile and median
+    )
+
+    # Add titles and labels
+    plt.title('Overall GPA Distribution by Job Status and Gender', fontsize=16, fontweight='bold')
+    plt.xlabel('Has a Job', fontsize=14)
+    plt.ylabel('Overall GPA', fontsize=14)
+    plt.legend(title='Gender', fontsize=10, title_fontsize='12')
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+
+    # Add a grid for better readability
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    # Adjust layout to prevent labels from overlapping
+    plt.tight_layout()
+    
+    # Display the plot
+    plt.show()
+    
+    # Optionally, save the plot to a file (uncomment to use)
+    # plt.savefig('overall_gpa_job_gender_violin.png', dpi=300)
+
+
+if __name__ == '__main__':
+    # --- Data Loading Placeholder ---
+    # NOTE: Replace this with your actual data loading mechanism (e.g., from a CSV)
+    # This is a dummy DataFrame for demonstration purposes.
+    data = {
+        'Overall': [3.5, 3.8, 3.2, 2.9, 4.0, 3.1, 3.6, 3.3, 3.0, 3.9],
+        'Job': ['Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No'],
+        'Gender': ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male', 'Female', 'Male']
+    }
+    df_example = pd.DataFrame(data)
+
+    print("Generating violin plot...")
+    create_gpa_job_gender_violin_plot(df_example)
+    print("Plot display finished.")
