@@ -63,63 +63,55 @@ if 'Gender' in arts_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 
                 # --- Visualization ---
-def create_gpa_job_gender_violin_plot(df: pd.DataFrame):
-    """
-    Generates a split violin plot visualizing the distribution of Overall GPA
-    based on Job Status ('Job') and split by 'Gender'.
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
 
-    Args:
-        df (pd.DataFrame): The DataFrame containing 'Job', 'Overall', and 'Gender' columns.
-                           'Job' should be categorical (e.g., Yes/No),
-                           'Overall' should be the GPA score (numeric),
-                           'Gender' should be categorical (e.g., Male/Female).
-    """
-    # Set the size of the plot
-    plt.figure(figsize=(14, 6))
+# --- 1. Define the correct file path ---
+# Use a relative path assuming the CSV is in a 'data' folder
+csv_file_path = os.path.join('data', 'ResearchInformation3.csv')
 
-    # Create the split violin plot
-    sns.violinplot(
-        x='Job',
-        y='Overall',
-        hue='Gender',
-        data=df,
-        palette={'Male': 'skyblue', 'Female': 'lightcoral'},
-        split=True,
-        inner='quartile' # Adds lines for quartile and median
-    )
+# Load the CSV file
+# Use try-except to handle potential file not found or decoding errors
+try:
+    df = pd.read_csv(csv_file_path)
+except FileNotFoundError:
+    print(f"Error: The file was not found at {csv_file_path}")
+    exit() # Stop execution if data isn't loaded
+except UnicodeDecodeError:
+    print("Error: Could not decode the file. Try specifying an encoding (e.g., encoding='latin-1').")
+    exit()
 
-    # Add titles and labels
-    plt.title('Overall GPA Distribution by Job Status and Gender', fontsize=16, fontweight='bold')
-    plt.xlabel('Has a Job', fontsize=14)
-    plt.ylabel('Overall GPA', fontsize=14)
-    plt.legend(title='Gender', fontsize=10, title_fontsize='12')
-    plt.xticks(fontsize=12)
-    plt.yticks(fontsize=12)
+# --- 2. Create and Save the Visualization ---
 
-    # Add a grid for better readability
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-    
-    # Adjust layout to prevent labels from overlapping
-    plt.tight_layout()
-    
-    # Display the plot
-    plt.show()
-    
-    # Optionally, save the plot to a file (uncomment to use)
-    # plt.savefig('overall_gpa_job_gender_violin.png', dpi=300)
+plt.figure(figsize=(10, 6))
 
+sns.violinplot(
+    x='Job',
+    y='Overall',
+    hue='Gender',
+    data=df,
+    palette={'Male': 'skyblue', 'Female': 'lightcoral'},
+    split=True,
+    inner='quartile'
+)
 
-if __name__ == '__main__':
-    # --- Data Loading Placeholder ---
-    # NOTE: Replace this with your actual data loading mechanism (e.g., from a CSV)
-    # This is a dummy DataFrame for demonstration purposes.
-    data = {
-        'Overall': [3.5, 3.8, 3.2, 2.9, 4.0, 3.1, 3.6, 3.3, 3.0, 3.9],
-        'Job': ['Yes', 'Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'Yes', 'No'],
-        'Gender': ['Male', 'Female', 'Male', 'Female', 'Male', 'Female', 'Female', 'Male', 'Female', 'Male']
-    }
-    df_example = pd.DataFrame(data)
+plt.title('Objective 1: Overall GPA Distribution by Job Status and Gender', fontsize=14)
+plt.xlabel('Has a Job', fontsize=12)
+plt.ylabel('Overall GPA', fontsize=12)
+plt.legend(title='Gender')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+plt.tight_layout()
 
-    print("Generating violin plot...")
-    create_gpa_job_gender_violin_plot(df_example)
-    print("Plot display finished.")
+# --- 3. Save the output image file ---
+# Create an 'images' directory if it doesn't exist
+output_dir = 'images'
+os.makedirs(output_dir, exist_ok=True)
+output_path = os.path.join(output_dir, 'overall_gpa_job_gender_violinplot.png')
+
+# Save the plot to the file path
+plt.savefig(output_path)
+plt.close() # Close the plot to free up memory
+
+print(f"Visualization successfully generated and saved to: {output_path}")
