@@ -105,6 +105,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
                palette={'Male': 'skyblue', 'Female': 'lightcoral'},
                split=True,
                inner='quartile',# Adds lines for quartile and median
+               color_discrete_sequence=px.colors.sequential.RdBu,
                ax=ax
           )
             
