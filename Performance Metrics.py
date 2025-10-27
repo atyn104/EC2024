@@ -100,7 +100,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
            sns.violinplot(
            x='Job_Status',
            y='Overall_GPA',
-           hue='Student_Gender'
+           hue='Student_Gender',
            df=Business_Administration_df,
            palette={'Male': 'skyblue', 'Female': 'lightcoral'},
            split=True,
