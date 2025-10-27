@@ -96,6 +96,7 @@ required_cols = ['Job', 'Overall', 'Gender'] # <--- MUST ALIGN WITH THE LINE ABO
 if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
     
            fig, ax = plt.subplots(figsize=(14, 6))
+    
            sns.violinplot(
                x='Job_Status',
                y='Overall_GPA',
