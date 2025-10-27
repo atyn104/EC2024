@@ -105,7 +105,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
                 palette={'Male': 'skyblue', 'Female': 'lightcoral'},
                 split=True,
                 inner='quartile' # Adds lines for quartile and median
-)
+        )
             plt.title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
             plt.xlabel('Has a Job', fontsize=12)
             plt.ylabel('Overall GPA', fontsize=12)
