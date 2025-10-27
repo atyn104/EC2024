@@ -106,7 +106,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
            split=True,
            inner='quartile',# Adds lines for quartile and median
            ax=ax
-        )
+          )
             
            ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
            ax.set_xlabel('Has a Job', fontsize=12)
