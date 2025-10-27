@@ -109,7 +109,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
         )
             
            ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
-            ax.set_xlabel('Has a Job', fontsize=12)
+           ax.set_xlabel('Has a Job', fontsize=12)
             ax.set_ylabel('Overall GPA', fontsize=12)
             ax.legend(title='Gender')
             ax.grid(axis='y', linestyle='--', alpha=0.7)
