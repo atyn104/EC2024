@@ -172,3 +172,107 @@ def create_stacked_bar_chart(counts):
 # 4. Run the function
 create_stacked_bar_chart(gender_income_counts)
 
+# ---OBJ Number 2  ---
+try:
+    # Attempt to load the data file. Since this is a combined script, 
+    # we assume the file 'Business_Administration_Department_data.csv' is present.
+    df = pd.read_csv("Business_Administration_Department_data.csv")
+    data_loaded = True
+except FileNotFoundError:
+    data_loaded = False
+    
+# --- Plotting Function for Obj Number 2 ---
+def create_regression_plot(data):
+    """Relationship Between English Skill Rating and Overall GPA."""
+    
+    # Check if the necessary columns exist before plotting
+    if 'English' not in data.columns or 'Overall' not in data.columns:
+        st.error("Data error: Required columns ('English' and 'Overall') not found in the dataset.")
+        return
+
+    # Create the figure and axes explicitly
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Create the regression plot
+    sns.regplot(
+        x='English',
+        y='Overall',
+        data=data,
+        scatter_kws={'alpha':0.6, 'color': '#2C5D6F'}, # Blue/Teal color
+        line_kws={'color':'#E54B4B', 'linewidth': 2}, # Red regression line
+        ax=ax
+    )
+
+    # Set titles and labels
+    ax.set_title('Relationship Between English Skill Rating and Overall GPA', fontsize=16, fontweight='bold')
+    ax.set_xlabel('English Skill Rating (Input)', fontsize=13)
+    ax.set_ylabel('Overall GPA (Outcome)', fontsize=13)
+    
+    # Customize appearance
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.grid(axis='y', linestyle=':', alpha=0.7)
+    
+    plt.tight_layout()
+    
+    # Display the plot in Streamlit
+    st.pyplot(fig)
+
+
+# ===============================================
+# --- Streamlit Application Layout ---
+# ===============================================
+
+st.title("🎓 Student Performance Metrics")
+st.markdown("---")
+
+
+# --- Create the Sub-Navigation Menu (Radio Buttons) ---
+# This acts as the sub-menu for different metrics within this page.
+sub_menu = st.radio(
+    "Select a Metric Group:",
+    ["Overview Dashboard", "Obj Number 2: Detailed View", "Grades Breakdown"],
+    index=1, # Default to "Obj Number 2"
+    horizontal=True # Make the radio buttons horizontal for a cleaner look
+)
+
+st.markdown("---")
+
+# --- Display Content Based on Selection ---
+
+if sub_menu == "Overview Dashboard":
+    st.header("📊 Overview Dashboard")
+    st.info("This section would contain high-level KPIs and summary charts.")
+    st.write("Summary charts for all student performance, attendance, and general trends go here.")
+
+elif sub_menu == "Obj Number 2: Detailed View":
+    st.header("🎯 Obj Number 2: English Rating vs. Overall GPA Analysis")
+    st.markdown("""
+        This view explores the correlation between the student's self-reported **English Skill Rating** and their resultant **Overall GPA**. A positive trend suggests stronger language skills may be 
+        linked to higher academic performance in this department.
+    """)
+
+    # Display the plot only if data was successfully loaded
+    if data_loaded:
+        with st.container(border=True):
+            st.subheader("Regression Analysis")
+            create_regression_plot(df)
+            
+            # Additional dummy metrics for context
+            st.subheader("Key Performance Indicators (KPIs)")
+            col1, col2, col3 = st.columns(3)
+            col1.metric("Students Analyzed", f"{len(df)}", "+10%")
+            col2.metric("Mean Overall GPA", f"{df['Overall'].mean():.2f}", "-0.1")
+            # Assuming 'English' columns has ratings up to 5
+            col3.metric("Avg. English Rating", f"{df['English'].mean():.2f}") 
+        
+    else:
+        st.error("Cannot display the analysis. Please ensure the 'Business_Administration_Department_data.csv' file is in the correct location.")
+
+
+elif sub_menu == "Grades Breakdown":
+    st.header("📝 Grades Breakdown")
+    st.info("Detailed views of specific course grades, pass rates, and grade distribution.")
+    st.write("Detailed view of all course grades and historical performance.")
+
+
