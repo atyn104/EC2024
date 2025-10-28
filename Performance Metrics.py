@@ -68,41 +68,42 @@ if 'Gender' in Business_Administration_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 st.markdown("---")
 
+st.title("Business Administration Student Gender Analysis")
 
-st.title("Student Gender Distribution Dashboard")
-st.subheader("Count by Gender (Total Dataset)")
+try:
+    df = pd.read_csv("Business_Administration_Department_data.csv")
+except FileNotFoundError:
+    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.stop()
 
-if 'Gender' in Business_Administration_df.columns:
-    # Redefine the Series that your plotting code expects: gender_counts_total
-    # This uses the same logic as the Plotly section, but outputs a Series
-    # The original variable was a Pandas Series from a value_counts() call.
-    gender_counts_total = Business_Administration_df['Gender'].value_counts()
-else:
-    st.error("The 'Gender' column is missing from the data. Cannot generate gender count chart.")
-    st.stop() # Stop execution if the column is missing
-# -----------------------------
+# 2. Prepare the data: Calculate gender counts
+gender_counts_total = df['Gender'].value_counts()
 
-# Display the raw counts
-# This now works because gender_counts_total is a defined Pandas Series
-st.dataframe(gender_counts_total.rename('Count').to_frame().T)
+# 3. Define the plotting function
+def create_gender_bar_chart(counts):
+    # Set up the colors to ensure they match the gender
+    palette_colors = {'Male': 'skyblue', 'Female': 'lightcoral'}
+    # Create a list of colors in the order of the index (Gender counts)
+    color_list = [palette_colors[g] for g in counts.index]
 
-# Display the raw counts
-st.dataframe(gender_counts_total.rename('Count').to_frame().T)
+    # Create the figure and axes explicitly
+    fig, ax = plt.subplots(figsize=(6, 4))
 
-# Create the Matplotlib figure
-fig, ax = plt.subplots(figsize=(6, 4))
+    # Create the bar plot using the axes object
+    sns.barplot(
+        x=counts.index,
+        y=counts.values,
+        palette=color_list,
+        ax=ax
+    )
 
-# Create the bar plot using Seaborn on the specified axes (ax)
-sns.barplot(
-    x=gender_counts_total.index, 
-    y=gender_counts_total.values, 
-    ax=ax # IMPORTANT: Pass the axes object to Seaborn
-)
+    # Set titles and labels using the axes object
+    ax.set_title('Student Count by Gender (Total Dataset)')
+    ax.set_xlabel('Gender')
+    ax.set_ylabel('Number of Students')
 
-# Set the title and labels for the plot
-ax.set_title('Student Count by Gender (Total Dataset)')
-ax.set_xlabel('Gender')
-ax.set_ylabel('Number of Students')
+    # Display the plot in Streamlit
+    st.pyplot(fig)
 
-# Show the plot in Streamlit using st.pyplot()
-st.pyplot(fig)
+# 4. Run the function
+create_gender_bar_chart(gender_counts_total)
