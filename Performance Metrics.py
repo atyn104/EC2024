@@ -68,61 +68,33 @@ if 'Gender' in Business_Administration_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 st.markdown("---")
 
-# --- Visualization ---
-st.subheader("3. HSC Score vs. Overall GPA")
-required_cols = ['HSC', 'Overall']
-if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
-    
-    # 1. Initialize Figure and Axes
-    fig, ax = plt.subplots(figsize=(8, 6))
+# --- Dummy Data for Demonstration ---
+# Since gender_counts_total is not defined, we'll create a dummy variable.
+# In your actual app, this variable will come from your dataset processing.
+data = {'Male': 150, 'Female': 180}
+gender_counts_total = pd.Series(data)
+# --- End of Dummy Data ---
 
-    sns.regplot(
-        x='HSC',
-        y='Overall',
-        data=Business_Administration_df,
-        scatter_kws={'alpha':0.6},
-        line_kws={'color':'red'},
-        ax=ax
-    )
+st.title("Student Gender Distribution Dashboard")
+st.subheader("Count by Gender (Total Dataset)")
 
-    ax.set_title('Relationship Between HSC Score and Overall GPA', fontsize=14)
-    ax.set_xlabel('HSC Score', fontsize=12)
-    ax.set_ylabel('Overall GPA', fontsize=12)
-    ax.grid(axis='both', linestyle='--', alpha=0.5)
+# Display the raw counts
+st.dataframe(gender_counts_total.rename('Count').to_frame().T)
 
-    plt.tight_layout()
-    st.pyplot(fig, use_container_width=True)
+# Create the Matplotlib figure
+fig, ax = plt.subplots(figsize=(6, 4))
 
-# --- Visualization ---
-# --- Improved Visualization with Better Labels ---
-st.subheader("4. Overall GPA Distribution by Job Status and Gender")
-required_cols = ['Job', 'Overall', 'Gender']
-if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
-    
-    fig, ax = plt.subplots(figsize=(14, 6))
-    
-    # Create violin plot
-    sns.violinplot(
-        x='Job',
-        y='Overall',
-        hue='Gender',
-        data=Business_Administration_df,
-        palette={'Male': 'skyblue', 'Female': 'lightcoral'},
-        split=True,
-        inner='quartile',
-        ax=ax
-    )
-    
-    # Enhanced styling with better labels
-    ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=16, fontweight='bold', pad=20)
-    ax.set_xlabel('Employment Status', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Overall GPA', fontsize=12, fontweight='bold')
-    
-    # CHANGE: Replace "No/Yes" with descriptive labels
-    ax.set_xticklabels(['Yes', 'NO'])  # This is the key change
-    
-    ax.legend(title='Gender', title_fontsize=11, fontsize=10)
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-    
-    plt.tight_layout()
-    st.pyplot(fig, use_container_width=True)
+# Create the bar plot using Seaborn on the specified axes (ax)
+sns.barplot(
+    x=gender_counts_total.index, 
+    y=gender_counts_total.values, 
+    ax=ax # IMPORTANT: Pass the axes object to Seaborn
+)
+
+# Set the title and labels for the plot
+ax.set_title('Student Count by Gender (Total Dataset)')
+ax.set_xlabel('Gender')
+ax.set_ylabel('Number of Students')
+
+# Show the plot in Streamlit using st.pyplot()
+st.pyplot(fig)
