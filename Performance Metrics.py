@@ -91,7 +91,7 @@ st.subheader("4. Overall GPA Distribution by Job Status and Gender")
 required_cols = ['Job', 'Overall', 'Gender']
 if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
     
-    fig, ax = plt.subplots(figsize=(12, 6))
+    fig, ax = plt.subplots(figsize=(14, 6))
     
     # Create violin plot
     sns.violinplot(
@@ -114,7 +114,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
     ax.set_xticklabels(['No Job', 'Has Job'])  # This is the key change
     
     ax.legend(title='Gender', title_fontsize=11, fontsize=10)
-    ax.grid(axis='y', linestyle='--', alpha=0.3)
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
     
     plt.tight_layout()
     st.pyplot(fig, use_container_width=True)
