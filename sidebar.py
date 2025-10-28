@@ -17,5 +17,4 @@ pg = st.navigation(
 pg.run()
 
 with st.sidebar:
-    st.subheader("Objectives")
     selected = st.button("Objective Number 2")
