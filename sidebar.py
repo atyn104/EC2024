@@ -17,4 +17,4 @@ pg = st.navigation(
 pg.run()
 
 with st.sidebar:
-    st.sub("Objective Number 2")
+    st.subheader("Objective Number 2")
