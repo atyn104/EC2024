@@ -173,3 +173,54 @@ def create_stacked_bar_chart(counts):
 create_stacked_bar_chart(gender_income_counts)
 
 # ---OBJ Number 2  ---
+
+try:
+    # Attempt to load the data file. Since this is a combined script, 
+    # we assume the file 'Business_Administration_Department_data.csv' is present.
+    # If the file is not available, the app will still run but the plot will be skipped.
+    df = pd.read_csv("Business_Administration_Department_data.csv")
+    data_loaded = True
+except FileNotFoundError:
+    # Create a placeholder DataFrame for running the app without the file
+    df = pd.DataFrame({
+        'English': [3, 4, 5, 2, 4],
+        'Overall': [3.1, 3.8, 4.0, 2.5, 3.5]
+    })
+    data_loaded = False
+    
+# --- Plotting Function for Obj Number 2 ---
+def create_regression_plot(data):
+    """Generates and displays the English Skill Rating vs. Overall GPA Regression Plot."""
+    
+    # Check if the necessary columns exist before plotting
+    if 'English' not in data.columns or 'Overall' not in data.columns:
+        st.error("Data error: Required columns ('English' and 'Overall') not found in the dataset.")
+        return
+
+    # Create the figure and axes explicitly
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Create the regression plot
+    sns.regplot(
+        x='English',
+        y='Overall',
+        data=data,
+        scatter_kws={'alpha':0.6, 'color': '#2C5D6F'}, # Blue/Teal color
+        line_kws={'color':'#E54B4B', 'linewidth': 2}, # Red regression line
+        ax=ax
+    )
+
+    # Set titles and labels
+    ax.set_title('Relationship Between English Skill Rating and Overall GPA', fontsize=16, fontweight='bold')
+    ax.set_xlabel('English Skill Rating (Input)', fontsize=13)
+    ax.set_ylabel('Overall GPA (Outcome)', fontsize=13)
+    
+    # Customize appearance
+    ax.spines['right'].set_visible(False)
+    ax.spines['top'].set_visible(False)
+    ax.grid(axis='y', linestyle=':', alpha=0.7)
+    
+    plt.tight_layout()
+    
+    # Display the plot in Streamlit
+    st.pyplot(fig)
