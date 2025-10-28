@@ -109,6 +109,7 @@ def create_hometown_gender_plot(counts):
 
 # 4. Run the function
 create_hometown_gender_plot(hometown_gender_counts)
+st.markdown("---")
 
         # ---NO 3 Income Level Distribution by Gender  ---
 
