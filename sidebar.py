@@ -15,3 +15,13 @@ pg = st.navigation(
     )
 
 pg.run()
+
+with st.sidebar:
+    st.header("Objective Number 2")
+    
+    # --- Top-Level Item 1: Homepage ---
+    if st.button("🏠 Homepage", key="nav_home", use_container_width=True):
+        st.session_state.page = "Homepage"
+
+    st.markdown("---")
+    
