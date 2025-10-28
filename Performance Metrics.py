@@ -111,7 +111,7 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
     ax.set_ylabel('Overall GPA', fontsize=12, fontweight='bold')
     
     # CHANGE: Replace "No/Yes" with descriptive labels
-    ax.set_xticklabels(['No Job', 'Has Job'])  # This is the key change
+    ax.set_xticklabels(['Yes', 'NO'])  # This is the key change
     
     ax.legend(title='Gender', title_fontsize=11, fontsize=10)
     ax.grid(axis='y', linestyle='--', alpha=0.7)
