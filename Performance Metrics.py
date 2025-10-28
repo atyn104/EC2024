@@ -98,9 +98,9 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
            fig, ax = plt.subplots(figsize=(14, 6))
     
            sns.violinplot(
-             x='Job',
-             y='Overall',
-             hue='Gender',
+             x="Job",
+             y="Overall",
+             hue="Gender",
              df=Business_Administration_df,
              palette={'Male': 'skyblue', 'Female': 'lightcoral'},
              split=True,
