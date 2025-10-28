@@ -173,68 +173,76 @@ def create_stacked_bar_chart(counts):
 create_stacked_bar_chart(gender_income_counts)
 
 
-# --- SUB-SIDEBAR (FILTERS) ---
+# --- PAGE-SPECIFIC SUB-MENU (SIDEBAR) ---
 
-# The Streamlit Multi-page App navigation (from the main file) is automatically here.
-# We are adding additional, page-specific controls inside the sidebar.
-with st.sidebar.expander("📊 Objective Number 2", expanded=True):
+# The st.expander creates the collapsible "sub-menu" inside the main sidebar.
+with st.sidebar.expander("📊 **Data Views**", expanded=True):
     st.markdown("##### Select Filters:") 
     
+    # 1. Selectbox (The element we previously discussed removing)
+    grade_selection = st.selectbox(
+        "Select Grade", 
+        ["All", "Grade 9", "Grade 10", "Grade 11"],
+        key="grade_filter"
+    )
+    
+    # 2. Checkbox
     show_absences = st.checkbox("Show Absences", key="absences_check")
     
-    # The Apply Filters button (to signal data refresh)
+    # 3. Action Button
     st.button("Apply Filters", key="apply_filters") 
 
-# --- MAIN PAGE CONTENT (DATA LOAD AND VISUALIZATION) ---
+# --- MAIN PAGE CONTENT ---
 
 st.header("Student Performance Dashboard")
 st.write("Use the controls in the sidebar to filter and analyze performance data. The plot below visualizes a key relationship.")
 
-# 1. Load the data 
-# NOTE: In a real Streamlit app, you should use @st.cache_data for faster loading.
-try:
-    # Attempt to load the data
-    df = pd.read_csv("Business_Administration_Department_data.csv")
-except FileNotFoundError:
-    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found. Please ensure the file is in your application's root directory.")
-    st.stop() # Stop the script execution if data is missing
+# 1. Load the data (Using st.cache_data for performance optimization)
+# NOTE: Ensure 'Business_Administration_Department_data.csv' is in your app directory.
+@st.cache_data
+def load_data():
+    try:
+        df = pd.read_csv("Business_Administration_Department_data.csv")
+        return df
+    except FileNotFoundError:
+        st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+        return None
 
+df = load_data()
 
-# 2. Create the plotting function
-def create_regression_plot(data):
-    # Create the figure and axes explicitly for proper Streamlit display
-    fig, ax = plt.subplots(figsize=(10, 6))
+if df is not None:
+    st.title("English Skill Rating vs. Overall GPA Analysis")
 
-    # Create the regression plot
-    sns.regplot(
-        x='English',
-        y='Overall',
-        data=data,
-        scatter_kws={'alpha':0.6, 's': 50, 'color': '#1E88E5'}, # Blue scatter points
-        line_kws={'color':'#EA4335', 'lw': 3}, # Red regression line
-        ax=ax
+    # 2. Create the plotting function
+    def create_regression_plot(data):
+        fig, ax = plt.subplots(figsize=(10, 6))
+
+        # Create the regression plot
+        sns.regplot(
+            x='English',
+            y='Overall',
+            data=data,
+            scatter_kws={'alpha':0.6, 's': 50, 'color': '#1E88E5'}, 
+            line_kws={'color':'#EA4335', 'lw': 3}, 
+            ax=ax
+        )
+
+        # Set titles and labels
+        ax.set_title('Relationship Between English Skill Rating and Overall GPA', fontsize=16, fontweight='bold')
+        ax.set_xlabel('English Skill Rating', fontsize=13)
+        ax.set_ylabel('Overall GPA', fontsize=13)
+        
+        # Customizing chart appearance
+        ax.grid(axis='y', linestyle='--', alpha=0.4)
+        sns.despine(trim=True) 
+        plt.tight_layout()
+        
+        return fig
+
+    # 3. Display the final plot
+    plot_fig = create_regression_plot(df)
+    st.pyplot(plot_fig)
+
+    st.caption(
+        "💡 This visualization shows the correlation between a student's self-reported English skill and their overall GPA."
     )
-
-    # Set titles and labels
-    ax.set_title('Relationship Between English Skill Rating and Overall GPA', fontsize=16, fontweight='bold')
-    ax.set_xlabel('English Skill Rating', fontsize=13)
-    ax.set_ylabel('Overall GPA', fontsize=13)
-    
-    # Customize the appearance for a cleaner look
-    ax.grid(axis='y', linestyle='--', alpha=0.4)
-    sns.despine(trim=True) # Remove top and right borders
-    plt.tight_layout()
-    
-    # Return the Matplotlib figure object
-    return fig
-
-# 3. Display the Title and Run the function
-st.title("English Skill Rating vs. Overall GPA Analysis")
-
-# Display the final plot
-plot_fig = create_regression_plot(df)
-st.pyplot(plot_fig)
-
-st.caption(
-    "💡 Visualization shows the correlation between a student's self-reported English skill and their overall GPA."
-)
