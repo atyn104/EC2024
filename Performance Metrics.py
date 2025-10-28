@@ -68,42 +68,43 @@ if 'Gender' in Business_Administration_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 st.markdown("---")
 
-st.title("Business Administration Student Gender Analysis")
 
+st.title("Student Count by Hometown and Gender")
+
+# 1. Load the data (assuming the file is available in the app's environment)
 try:
     df = pd.read_csv("Business_Administration_Department_data.csv")
 except FileNotFoundError:
     st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
     st.stop()
 
-# 2. Prepare the data: Calculate gender counts
-gender_counts_total = df['Gender'].value_counts()
+# 2. Prepare the data: Group by Hometown and Gender and count occurrences
+hometown_gender_counts = df.groupby(['Hometown', 'Gender']).size().unstack(fill_value=0)
 
-# 3. Define the plotting function
-def create_gender_bar_chart(counts):
-    # Set up the colors to ensure they match the gender
-    palette_colors = {'Male': 'skyblue', 'Female': 'lightcoral'}
-    # Create a list of colors in the order of the index (Gender counts)
-    color_list = [palette_colors[g] for g in counts.index]
-
+# 3. Create the plotting function
+def create_hometown_gender_plot(counts):
     # Create the figure and axes explicitly
-    fig, ax = plt.subplots(figsize=(6, 4))
+    # This is critical for Streamlit to know which figure to display
+    fig, ax = plt.subplots(figsize=(10, 6))
 
-    # Create the bar plot using the axes object
-    sns.barplot(
-        x=counts.index,
-        y=counts.values,
-        palette=color_list,
-        ax=ax
-    )
+    # Plot the data using pandas plot function on the created axes (ax)
+    counts.plot(kind='bar', ax=ax, colormap='viridis')
 
     # Set titles and labels using the axes object
-    ax.set_title('Student Count by Gender (Total Dataset)')
-    ax.set_xlabel('Gender')
-    ax.set_ylabel('Number of Students')
+    ax.set_title('Student Count by Hometown and Gender', fontsize=14)
+    ax.set_xlabel('Hometown', fontsize=12)
+    ax.set_ylabel('Number of Students', fontsize=12)
+    
+    # Use ax.tick_params or ax.set_xticklabels for rotations
+    ax.tick_params(axis='x', rotation=0) 
+    
+    ax.legend(title='Gender')
+    ax.grid(axis='y', linestyle='--', alpha=0.5)
 
+    plt.tight_layout()
+    
     # Display the plot in Streamlit
     st.pyplot(fig)
 
 # 4. Run the function
-create_gender_bar_chart(gender_counts_total)
+create_hometown_gender_plot(hometown_gender_counts)
