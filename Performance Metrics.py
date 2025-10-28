@@ -68,12 +68,6 @@ if 'Gender' in Business_Administration_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 st.markdown("---")
 
-# --- Dummy Data for Demonstration ---
-# Since gender_counts_total is not defined, we'll create a dummy variable.
-# In your actual app, this variable will come from your dataset processing.
-data = {'Male': 150, 'Female': 180}
-gender_counts_total = pd.Series(data)
-# --- End of Dummy Data ---
 
 st.title("Student Gender Distribution Dashboard")
 st.subheader("Count by Gender (Total Dataset)")
