@@ -43,7 +43,7 @@ st.subheader("1. Raw Data Preview")
 st.dataframe(Business_Administration_df.head(), use_container_width=True)
 st.markdown("---")
 
-# --- Plotly Pie Chart (Distribution of Gender) ---
+# ---NO 1 Plotly Pie Chart (Distribution of Gender) ---
 st.subheader("2. Distribution of Gender in Business Administration Department")
     
 if 'Gender' in Business_Administration_df.columns:
@@ -68,6 +68,7 @@ if 'Gender' in Business_Administration_df.columns:
     st.plotly_chart(fig_pie, use_container_width=True)
 st.markdown("---")
 
+# ---NO 2 Student Count by Hometown and Gender ---
 
 st.title("Student Count by Hometown and Gender")
 
@@ -102,9 +103,70 @@ def create_hometown_gender_plot(counts):
     ax.grid(axis='y', linestyle='--', alpha=0.5)
 
     plt.tight_layout()
-    
+
     # Display the plot in Streamlit
     st.pyplot(fig)
 
 # 4. Run the function
 create_hometown_gender_plot(hometown_gender_counts)
+
+        # ---NO 3 Income Level Distribution by Gender  ---
+
+st.title("Income Level Distribution by Gender")
+
+# 1. Load the data (assuming the file is available in the app's environment)
+try:
+    df = pd.read_csv("Business_Administration_Department_data.csv")
+except FileNotFoundError:
+    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.stop()
+
+# 2. Prepare the data: Create cross-tabulation table
+# Calculate the percentage distribution of income levels within each gender
+gender_income_counts = pd.crosstab(df['Gender'], df['Income'], normalize='index') * 100
+
+# Define the logical order for income levels
+income_order = [
+    'Low (Below 15,000)',
+    'Lower middle (15,000-30,000)',
+    'Upper middle (30,000-50,000)',
+    'High (Above 50,000)'
+]
+
+# Reindex to ensure consistent stacking order (using existing columns)
+existing_cols = [col for col in income_order if col in gender_income_counts.columns]
+gender_income_counts = gender_income_counts[existing_cols]
+
+# 3. Create the plotting function
+def create_stacked_bar_chart(counts):
+    # Create the figure and axes explicitly
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # Plot the normalized table as a stacked bar chart using the axes object (ax)
+    counts.plot(
+        kind='bar',
+        stacked=True,
+        colormap='viridis',  # Using a different colormap
+        ax=ax
+    )
+
+    # Set titles and labels using the axes object
+    ax.set_title('Income Level Distribution by Gender', fontsize=14)
+    ax.set_xlabel('Gender', fontsize=12)
+    ax.set_ylabel('Percentage of Students (%)', fontsize=12)
+    
+    # Set x-tick rotation
+    ax.tick_params(axis='x', rotation=0)
+    
+    # Move legend outside using ax.legend()
+    ax.legend(title='Income Level', bbox_to_anchor=(1.05, 1), loc='upper left') 
+    
+    ax.grid(axis='y', linestyle='--', alpha=0.5)
+
+    plt.tight_layout()
+    
+    # Display the plot in Streamlit
+    st.pyplot(fig)
+
+# 4. Run the function
+create_stacked_bar_chart(gender_income_counts)
