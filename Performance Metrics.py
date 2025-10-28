@@ -118,4 +118,42 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
            plt.tight_layout()
            st.pyplot(fig, use_container_width=True)
 
+
+# 1. Create a cross-tabulation table normalized by index (Hometown) to get percentages
+hometown_income_counts = pd.crosstab(df['Hometown'], df['Income'], normalize='index') * 100
+
+# 2. Define the logical order for income levels
+income_order = [
+    'Low (Below 15,000)',
+    'Lower middle (15,000-30,000)',
+    'Upper middle (30,000-50,000)',
+    'High (Above 50,000)'
+]
+
+# 3. Reindex to ensure consistent stacking order
+# Use .reindex with fill_value=0 to handle cases where a hometown has 0% in an income level
+existing_cols = [col for col in income_order if col in hometown_income_counts.columns]
+hometown_income_counts = hometown_income_counts.reindex(columns=income_order, fill_value=0)
+hometown_income_counts = hometown_income_counts[existing_cols] # Filter back to existing columns if needed, or just keep the reindex result
+
+# 4. Plotting the Stacked Bar Chart
+plt.figure(figsize=(10, 6))
+
+# Plot the normalized table as a stacked bar chart
+hometown_income_counts.plot(
+    kind='bar',
+    stacked=True,
+    colormap='cividis', # A distinct color map
+    ax=plt.gca()
+)
+
+plt.title('Income Level Distribution by Hometown', fontsize=14)
+plt.xlabel('Hometown', fontsize=12)
+plt.ylabel('Percentage of Students (%)', fontsize=12)
+plt.xticks(rotation=0) # Keep x-labels horizontal
+plt.legend(title='Income Level', bbox_to_anchor=(1.05, 1), loc='upper left') # Move legend outside
+plt.grid(axis='y', linestyle='--', alpha=0.5)
+plt.tight_layout()
+
+
     
