@@ -97,16 +97,16 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
     
            fig, ax = plt.subplots(figsize=(14, 6))
     
-           sns.violinplot(
-             x="Job",
-             y="Overall",
-             hue="Gender",
-             df=Business_Administration_df,
-             palette={'Male': 'skyblue', 'Female': 'lightcoral'},
-             split=True,
-             inner='quartile',
-             color_discrete_sequence=px.colors.sequential.RdBu,
-             ax=ax
+    sns.violinplot(
+        x='Job',
+        y='Overall',
+        hue='Gender',
+        data=Business_Administration_df,  # Changed from 'df' to 'data'
+        palette={'Male': 'skyblue', 'Female': 'lightcoral'},
+        split=True,
+        inner='quartile',  # Adds lines for quartile and median
+        ax=ax
+
           )
             
            ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
