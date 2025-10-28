@@ -86,29 +86,35 @@ if not Business_Administration_df.empty and all(col in Business_Administration_d
     st.pyplot(fig, use_container_width=True)
 
 # --- Visualization ---
+# --- Improved Visualization with Better Labels ---
 st.subheader("4. Overall GPA Distribution by Job Status and Gender")
 required_cols = ['Job', 'Overall', 'Gender']
 if not Business_Administration_df.empty and all(col in Business_Administration_df.columns for col in required_cols):
     
-    fig, ax = plt.subplots(figsize=(14, 6))
+    fig, ax = plt.subplots(figsize=(12, 6))
     
-    # CORRECTED VIOLIN PLOT
+    # Create violin plot
     sns.violinplot(
         x='Job',
         y='Overall',
         hue='Gender',
-        data=Business_Administration_df,  # Changed from 'df' to 'data'
+        data=Business_Administration_df,
         palette={'Male': 'skyblue', 'Female': 'lightcoral'},
         split=True,
-        inner='quartile',  # Adds lines for quartile and median
+        inner='quartile',
         ax=ax
     )
     
-    ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=14)
-    ax.set_xlabel('Has a Job', fontsize=12)
-    ax.set_ylabel('Overall GPA', fontsize=12)
-    ax.legend(title='Gender')
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-
+    # Enhanced styling with better labels
+    ax.set_title('Overall GPA Distribution by Job Status and Gender', fontsize=16, fontweight='bold', pad=20)
+    ax.set_xlabel('Employment Status', fontsize=12, fontweight='bold')
+    ax.set_ylabel('Overall GPA', fontsize=12, fontweight='bold')
+    
+    # CHANGE: Replace "No/Yes" with descriptive labels
+    ax.set_xticklabels(['No Job', 'Has Job'])  # This is the key change
+    
+    ax.legend(title='Gender', title_fontsize=11, fontsize=10)
+    ax.grid(axis='y', linestyle='--', alpha=0.3)
+    
     plt.tight_layout()
     st.pyplot(fig, use_container_width=True)
