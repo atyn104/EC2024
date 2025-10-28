@@ -3,8 +3,8 @@ import streamlit as st
 st.set_page_config(page_title="Student Performance Metrics")
 
 # Define pages
-home = st.Page("pages/home.py", title="Homepage", icon=":material/home:", default=True)
-visualise = st.Page("pages/Student Performance Metrics/Objective Number 2.py",
+home = st.Page("home.py", title="Homepage", icon=":material/home:", default=True)
+visualise = st.Page("Student Performance Metrics/Objective Number 2.py",
                     title="Objective Number 2", icon=":material/analytics:")
 
 # Group under a parent section
