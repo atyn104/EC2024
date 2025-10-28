@@ -16,7 +16,7 @@ st.set_page_config(
 st.title("Student Performance Metrics ")
 st.markdown("---")
 
-col1, col2, col3, col4 = st.columns(3)
+col1, col2, col3 = st.columns(3)
    
 col1.metric(label="PLO 2", value=f"3.3", help="PLO 2: Cognitive Skill", border=True)
 col2.metric(label="PLO 3", value=f"3.5", help="PLO 3: Digital Skill", border=True)
