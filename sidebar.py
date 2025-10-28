@@ -2,12 +2,11 @@ import streamlit as st
 
 st.set_page_config(page_title="Student Performance Metrics")
 
-# Define pages
+# Page definitions
 home = st.Page("home.py", title="Homepage", icon=":material/home:", default=True)
-visualise = st.Page("Student Performance Metrics/Objective Number 2.py",
-                    title="Objective Number 2", icon=":material/analytics:")
+visualise = st.Page("Performance Metrics.py", title="Objective Number 2", icon=":material/analytics:")
 
-# Group under a parent section
+# Navigation menu
 pg = st.navigation({
     "Menu": [home],
     "🎓 Student Performance Metrics": [visualise],
