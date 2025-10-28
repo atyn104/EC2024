@@ -16,5 +16,6 @@ pg = st.navigation(
 
 pg.run()
 
-with st.sidebar:
-    selected = st.button("Objective Number 2")
+with st.sidebar.expander("🎓 Student Performance Metrics", expanded=False):
+    if st.button("Objective Number 2"):
+        st.session_state.page = "Objective 2"
