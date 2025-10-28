@@ -72,6 +72,20 @@ st.markdown("---")
 st.title("Student Gender Distribution Dashboard")
 st.subheader("Count by Gender (Total Dataset)")
 
+if 'Gender' in Business_Administration_df.columns:
+    # Redefine the Series that your plotting code expects: gender_counts_total
+    # This uses the same logic as the Plotly section, but outputs a Series
+    # The original variable was a Pandas Series from a value_counts() call.
+    gender_counts_total = Business_Administration_df['Gender'].value_counts()
+else:
+    st.error("The 'Gender' column is missing from the data. Cannot generate gender count chart.")
+    st.stop() # Stop execution if the column is missing
+# -----------------------------
+
+# Display the raw counts
+# This now works because gender_counts_total is a defined Pandas Series
+st.dataframe(gender_counts_total.rename('Count').to_frame().T)
+
 # Display the raw counts
 st.dataframe(gender_counts_total.rename('Count').to_frame().T)
 
