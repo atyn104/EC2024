@@ -12,11 +12,5 @@ pg = st.navigation({
     st.text("📊 **This page visualizes graphs based on objectives**")
     "🎓 Student Performance Metrics": [objective2],
 })
-
-# --- Tambah teks SEBELUM Student Performance Metrics ---
-with st.sidebar:
-    st.markdown("📊 **This page visualizes graphs based on objectives**")
-    st.markdown("---")
-
 # --- Run selected page ---
 pg.run()
