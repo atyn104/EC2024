@@ -4,12 +4,13 @@ st.set_page_config(page_title="Student Performance Metrics")
 
 # --- Page definitions ---
 home = st.Page("home.py", title="Homepage", icon=":material/home:", default=True)
-objective2 = st.Page("Performance Metrics.py", title="Objective Number 2", icon=":material/analytics:")
+performance = st.Page("Performance Metrics.py", title="Performance Metrics", icon=":material/analytics:")
+objective2 = st.Page("Objective Number 2.py", title="Objective Number 2", icon=":material/insights:")
 
-# --- Navigation menu (pages setup) ---
+# --- Navigation menu ---
 pg = st.navigation({
     "Menu": [home],
-    "🎓 Student Performance Metrics": [objective2],
+    "📊 Visualization Pages": [performance, objective2],
 })
-# --- Run selected page ---
+# --- Run the selected page ---
 pg.run()
