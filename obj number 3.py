@@ -4,7 +4,8 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-
+st.header("Objective 2")
+st.markdown("---")
 st.title("1. Student Count by Attendance Rate and Gender")
 
 # 1. Load the data (assuming the file is available in the app's environment)
