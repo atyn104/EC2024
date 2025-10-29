@@ -1,7 +1,32 @@
-# ---OBJ Number 2  ---
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+# URL for the data file
+url = "https://raw.githubusercontent.com/atyn104/EC2024/refs/heads/main/Business_Administration_Department_data.csv"
+
+# Function to load data with caching
+@st.cache_data
+def load_data(data_url):
+    try:
+        df = pd.read_csv(data_url)
+        return df
+    except Exception as e:
+        st.error(f"An error occurred while loading the file from the URL: {e}")
+        return pd.DataFrame()
+
+Business_Administration_df = load_data(url)
+
+if Business_Administration_df.empty:
+    st.stop()
+    
+st.dataframe(Business_Administration_df.head(), use_container_width=True)
 st.header("Objective 2")
+st.markdown("---")
 st.title("English Skill Rating vs. Overall GPA Analysis")
+
 
 # 1. Load the data
 try:
