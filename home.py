@@ -16,9 +16,9 @@ st.write(f"Overall Average CGPA: {average_cgpa:.2f}")
 # 2. Distribusi Jantina
 gender_distribution = data['Gender'].value_counts()
 st.subheader("Gender Distribution")
-st.bar_chart(gender_distribution)
+st.write(gender_distribution)
 
 # 3. Distribusi Pendapatan
 income_distribution = data['Income'].value_counts()
 st.subheader("Family Income Distribution")
-st.bar_chart(income_distribution)
+st.write(income_distribution)
