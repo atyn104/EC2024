@@ -101,7 +101,7 @@ except FileNotFoundError:
 # 2. Create the plotting function
 def create_violin_plot_extra(data):
     # Create the figure and axes explicitly (replacing plt.figure())
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
 
     # Create the violin plot using the axes object (ax)
     # The 'No' category will not appear if there are no 'No' entries.
