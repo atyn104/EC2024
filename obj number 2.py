@@ -88,3 +88,48 @@ def create_violin_plot(data, order):
 
 # 4. Run the function
 create_violin_plot(df, existing_semesters)
+
+####
+
+st.title("Overall GPA Distribution by Extra Curricular Activity Status")
+
+# 1. Load the data (assuming the file is available in the app's environment)
+try:
+    df = pd.read_csv("Business_Administration_Department_data.csv")
+except FileNotFoundError:
+    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.stop()
+
+# 2. Create the plotting function
+def create_violin_plot_extra(data):
+    # Create the figure and axes explicitly (replacing plt.figure())
+    fig, ax = plt.subplots(figsize=(8, 6))
+
+    # Create the violin plot using the axes object (ax)
+    # The 'No' category will not appear if there are no 'No' entries.
+    sns.violinplot(
+        x="Extra",
+        y="Overall",
+        data=data,
+        inner='quartile', # Adds lines for quartile and median
+        ax=ax
+    )
+
+    # Set titles and labels using the axes object
+    ax.set_title('Overall GPA Distribution by Extra Curricular Activity Status', fontsize=14)
+    ax.set_xlabel('Involved in Extra Curricular Activities', fontsize=12)
+    ax.set_ylabel('Overall GPA', fontsize=12)
+    
+    # Set grid and layout
+    ax.grid(axis='y', linestyle='--', alpha=0.7)
+    plt.tight_layout()
+    
+    # Display the plot in Streamlit (replacing plt.show())
+    st.pyplot(fig)
+
+# 3. Run the function
+create_violin_plot_extra(df)
+
+# Optional: Add a note about the data distribution
+if 'No' not in df['Extra'].unique():
+    st.info("Note: All students in the uploaded dataset reported 'Yes' for Extra Curricular Activities, so the plot only displays one distribution.")
