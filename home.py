@@ -15,8 +15,6 @@ st.metric(label="Overall Average CGPA: ", value=f"{average_cgpa:.2f}")
 
 # 2. Distribusi Jantina
 gender_distribution = data['Gender'].value_counts()
-st.subheader("Gender Distribution")
-st.write(gender_distribution)
 st.metric(label="Gender Distribution", value=str(gender_distribution['Male']))
 
 # 3. Distribusi Pendapatan
