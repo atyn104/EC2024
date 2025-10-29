@@ -11,14 +11,14 @@ st.title("🎓 Student Performance Metrics")
 # 1. Purata CGPA
 average_cgpa = data['Overall'].mean()
 st.subheader("Average GPA")
-st.write(f"Overall Average CGPA: {average_cgpa:.2f}")
+st.metric(label="Overall Average CGPA: ", value=f"{average_cgpa:.2f}")
 
 # 2. Distribusi Jantina
 gender_distribution = data['Gender'].value_counts()
 st.subheader("Gender Distribution")
 st.write(gender_distribution)
+st.metric(label="Gender Distribution", value=str(gender_distribution['Male']))
 
 # 3. Distribusi Pendapatan
 income_distribution = data['Income'].value_counts()
-st.subheader("Family Income Distribution")
-st.write(income_distribution)
+st.metric(label="Family Income Distribution", value=str(income_distribution['High']))
