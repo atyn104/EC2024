@@ -4,22 +4,6 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Function to load data with caching
-@st.cache_data
-def load_data(data_url):
-    try:
-        df = pd.read_csv(data_url)
-        return df
-    except Exception as e:
-        st.error(f"An error occurred while loading the file from the URL: {e}")
-        return pd.DataFrame()
-
-Business_Administration_df = load_data(url)
-
-if Business_Administration_df.empty:
-    st.stop()
-    
-st.dataframe(Business_Administration_df.head(), use_container_width=True)
 st.header("Objective 2")
 st.markdown("---")
 st.title("English Skill Rating vs. Overall GPA Analysis")
