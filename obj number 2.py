@@ -30,13 +30,6 @@ def create_regression_plot(data):
         line_kws={'color': 'red'},
         ax=ax
     )
-    # --- ADD THIS SECTION TO SET AXIS LIMITS ---
-    # Set X-axis limits (based on the full Colab graph)
-    ax.set_xlim(0.75, 5.25)
-    # Set Y-axis limits (based on the full Colab graph)
-    ax.set_ylim(0.75, 4.25)
-    # ---------------------------------------------
-
     # Set titles and labels
     ax.set_title('Relationship Between English Skill Rating and Overall GPA', fontsize=14)
     ax.set_xlabel('English Skill Rating', fontsize=12)
