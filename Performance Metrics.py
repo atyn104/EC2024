@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # URL for the data file
-url = "https://raw.githubusercontent.com/atyn104/EC2024/refs/heads/main/Business_Administration_Department_data.csv"
+url = "https://raw.githubusercontent.com/atyn104/EC2024/refs/heads/main/Computer_Science_and_Engineering_data.csv"
 
 # Set page configuration
 st.set_page_config(
@@ -34,21 +34,21 @@ def load_data(data_url):
         st.error(f"An error occurred while loading the file from the URL: {e}")
         return pd.DataFrame()
 
-Business_Administration_df = load_data(url)
+Computer_Science_and_Engineering_df = load_data(url)
 
-if Business_Administration_df.empty:
+if Computer_Science_and_Engineering_df.empty:
     st.stop()
     
 st.subheader("1. Raw Data Preview")
-st.dataframe(Business_Administration_df.head(), use_container_width=True)
+st.dataframe(Computer_Science_and_Engineering_df.head(), use_container_width=True)
 st.markdown("---")
 
 # ---NO 1 Plotly Pie Chart (Distribution of Gender) ---
-st.subheader("2. Distribution of Gender in Business Administration Department")
+st.subheader("2. Distribution of Gender in Computer Science and Engineering Department")
     
-if 'Gender' in Business_Administration_df.columns:
+if 'Gender' in Computer_Science_and_Engineering_df.columns:
     # Count the occurrences of each gender
-    gender_counts_df = Business_Administration_df['Gender'].value_counts().reset_index()
+    gender_counts_df = Computer_Science_and_Engineering_df['Gender'].value_counts().reset_index()
     gender_counts_df.columns = ['Gender', 'Count']
     
     # Use plotly.express to create a pie chart
@@ -74,9 +74,9 @@ st.title("Student Count by Hometown and Gender")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
-    df = pd.read_csv("Business_Administration_Department_data.csv")
+    df = pd.read_csv("Computer_Science_and_Engineering_data.csv")
 except FileNotFoundError:
-    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.error("Error: The data file 'Computer_Science_and_Engineering_data.csv' was not found.")
     st.stop()
 
 # 2. Prepare the data: Group by Hometown and Gender and count occurrences
@@ -117,9 +117,9 @@ st.title("Income Level Distribution by Gender")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
-    df = pd.read_csv("Business_Administration_Department_data.csv")
+    df = pd.read_csv("Computer_Science_and_Engineering_data.csv")
 except FileNotFoundError:
-    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.error("Error: The data file 'Computer_Science_and_Engineering_data.csv' was not found.")
     st.stop()
 
 # 2. Prepare the data: Create cross-tabulation table
