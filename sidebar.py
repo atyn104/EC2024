@@ -5,12 +5,6 @@ st.set_page_config(page_title="Student Performance Metrics")
 # ⚠️ Menonaktifkan navigasi sidebar default Streamlit
 # Ini memerlukan file .streamlit/config.toml dengan [client] showSidebarNavigation = false
 
-# --- Menu Navigasi di Badan Utama Aplikasi ---
-selected_page_title = st.selectbox(
-    "Pilih Halaman",
-    list(PAGES.keys()),
-    index=0 # Default ke Homepage
-)
 
 # Halaman yang tersedia (hanya untuk referensi)
 PAGES = {
@@ -19,7 +13,12 @@ PAGES = {
     "Objective Number 2": "obj number 2.py",
     "Objective Number 3": "obj number 3.py",
 }
-
+# --- Menu Navigasi di Badan Utama Aplikasi ---
+selected_page_title = st.selectbox(
+    "Pilih Halaman",
+    list(PAGES.keys()),
+    index=0 # Default ke Homepage
+  )
 
 # Ganti halaman
 if selected_page_title:
