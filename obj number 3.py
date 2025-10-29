@@ -124,3 +124,59 @@ create_grouped_hometown_plot(attendance_hometown_counts)
 # Add a note based on the specific data
 if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) == 1:
     st.info("Note: All students in the dataset fall into the **80%-100%** attendance category.")
+
+# --- Streamlit App Code ---
+
+st.title("3. Average SSC and HSC GPA by Attendance Rate Analysis")
+
+# 1. Load the data (assuming the file is available in the app's environment)
+try:
+    df = pd.read_csv("Computer_Science_and_Engineering_data.csv")
+except FileNotFoundError:
+    st.error("Error: The data file 'Computer_Science_and_Engineering_data.csv' was not found.")
+    st.stop()
+
+# 2. Prepare the data: Calculate average GPAs
+# Calculate the average SSC and HSC GPA for each attendance rate
+average_gpa_by_attendance = df.groupby('Attendance')[['SSC', 'HSC']].mean()
+
+# Define the desired order of attendance categories
+attendance_order = ['Below 40%', '40%-59%', '60%-79%', '80%-100%']
+
+# Reindex to ensure consistent ordering of attendance categories and fill non-existent categories with 0
+average_gpa_by_attendance = average_gpa_by_attendance.reindex(attendance_order).fillna(0)
+
+# 3. Create the plotting function
+def create_grouped_gpa_plot(counts):
+    # Create the figure and axes explicitly (replacing plt.figure())
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # Plot the data using pandas plot method on the created axes (ax)
+    counts.plot(
+        kind='bar',
+        ax=ax,
+        colormap='viridis'
+    )
+
+    # Set titles and labels using the axes object
+    ax.set_title('Average SSC and HSC GPA by Attendance Rate', fontsize=14)
+    ax.set_xlabel('Attendance Rate', fontsize=12)
+    ax.set_ylabel('Average GPA', fontsize=12)
+    
+    # Set x-tick rotation
+    ax.tick_params(axis='x', rotation=0) 
+    
+    ax.legend(title='GPA Type')
+    ax.grid(axis='y', linestyle='--', alpha=0.5)
+
+    plt.tight_layout()
+    
+    # 4. Display the plot in Streamlit (replacing plt.show())
+    st.pyplot(fig)
+
+# 5. Run the function
+create_grouped_gpa_plot(average_gpa_by_attendance)
+
+# Add a note based on the specific data
+if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) == 1:
+    st.info("Note: All data points represent students in the **80%-100%** attendance category, so the averages are based solely on that group.")
