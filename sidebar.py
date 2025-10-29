@@ -9,8 +9,13 @@ objective2 = st.Page("Performance Metrics.py", title="Objective Number 2", icon=
 # --- Navigation menu ---
 pg = st.navigation({
     "Menu": [home],
-    "📊 This page visualizes graphs based on objectives": [],
     "🎓 Student Performance Metrics": [objective2],
 })
 
+# --- Tambah teks selepas Homepage ---
+with st.sidebar:
+    st.markdown("📊 **This page visualizes graphs based on objectives**")
+    st.markdown("---")
+
+# --- Run selected page ---
 pg.run()
