@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.header("Objective 2")
+st.header("Objective 3")
 st.markdown("---")
 st.title("1. Student Count by Attendance Rate and Gender")
 
