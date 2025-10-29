@@ -5,18 +5,24 @@ import pandas as pd
 file_path = "https://raw.githubusercontent.com/atyn104/EC2024/refs/heads/main/Computer_Science_and_Engineering_data.csv"
 data = pd.read_csv(file_path)
 
-# Tajuk untuk dashboard
-st.title("🎓 Student Performance Metrics")
+# Set page configuration
+st.set_page_config(page_title="🎓 Student Performance Metrics", layout="wide")
 
-# 1. Purata CGPA
-average_cgpa = data['Overall'].mean()
-st.subheader("Average GPA")
-st.metric(label="Overall Average CGPA: ", value=f"{average_cgpa:.2f}")
+# --- Sample data for the summary box ---
+plo_2_value = 3.3
+plo_3_value = 3.5
+plo_4_value = 4.0
 
-# 2. Distribusi Jantina
-gender_distribution = data['Gender'].value_counts()
-st.metric(label="Gender Distribution", value=str(gender_distribution['Male']))
+# --- Displaying summary boxes ---
+col1, col2, col3 = st.columns(3)
 
-# 3. Distribusi Pendapatan
-income_distribution = data['Income'].value_counts()
-st.metric(label="Family Income Distribution", value=str(income_distribution['High']))
+with col1:
+    st.metric(label="Overall", value=f"{average_cgpa:.2f}")
+    
+with col2:
+    male_and_female = gender_distribution['Male'] + gender_distribution['Female']
+    st.metric(label="Gender", value=str"(male_and_female)")
+    
+with col3:
+    st.metric(label="Attendance", value=str"(attendance_distribution['More than 3 Hours'])")
+
