@@ -11,7 +11,7 @@ objective3 = st.Page("obj number 3.py", title="Objective Number 3", icon=":mater
 # --- Navigation menu ---
 pg = st.navigation({
     "Menu": [home],
-    "📊 Visualization Pages": [performance, objective2],
+    "📊 Visualization Pages": [performance, objective2,objective3],
 })
 # --- Run the selected page ---
 pg.run()
