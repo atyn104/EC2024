@@ -19,7 +19,7 @@ except FileNotFoundError:
 # 2. Function to create regression plot
 def create_regression_plot(data):
     # Create figure and axes
-    fig, ax = plt.subplots(figsize=(8, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
 
     # Plot regression
     sns.regplot(
