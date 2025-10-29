@@ -11,9 +11,9 @@ st.title("English Skill Rating vs. Overall GPA Analysis")
 
 # 1. Load the data
 try:
-    df = pd.read_csv("Business_Administration_Department_data.csv")
+    df = pd.read_csv("Computer_Science_and_Engineering_data.csv")
 except FileNotFoundError:
-    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.error("Error: The data file 'Computer_Science_and_Engineering_data.csv' was not found.")
     st.stop()
 
 # 2. Function to create regression plot
@@ -48,9 +48,9 @@ st.title("Overall GPA Distribution by Semester Analysis")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
-    df = pd.read_csv("Business_Administration_Department_data.csv")
+    df = pd.read_csv("Computer_Science_and_Engineering_data.csv")
 except FileNotFoundError:
-    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.error("Error: The data file 'Computer_Science_and_Engineering_data.csv' was not found.")
     st.stop()
 
 # 2. Define custom order for semesters (optional but recommended for clarity)
@@ -94,9 +94,9 @@ st.title("Overall GPA Distribution by Extra Curricular Activity Status")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
-    df = pd.read_csv("Business_Administration_Department_data.csv")
+    df = pd.read_csv("Computer_Science_and_Engineering_data.csv")
 except FileNotFoundError:
-    st.error("Error: The data file 'Business_Administration_Department_data.csv' was not found.")
+    st.error("Error: The data file 'Computer_Science_and_Engineering_data.csv' was not found.")
     st.stop()
 
 # 2. Create the plotting function
