@@ -9,12 +9,6 @@ performance = "Performance Metrics"
 objective2 = "Objective Number 2"
 objective3 = "Objective Number 3"
 
-# --- Sidebar navigation menu ---
-page = st.sidebar.selectbox(
-    "Select a page",
-    [home, performance, objective2, objective3]
-)
-
 # --- Display content based on the selected page ---
 if page == home:
     st.title("Homepage")
