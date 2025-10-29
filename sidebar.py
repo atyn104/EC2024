@@ -9,8 +9,7 @@ objective2 = st.Page("Performance Metrics.py", title="Objective Number 2", icon=
 # --- Navigation menu (pages setup) ---
 pg = st.navigation({
     "Menu": [home],
-    "🎓 Student Performance Metrics",
-    [objective2],
+    "🎓 Student Performance Metrics": [objective2],
 })
 # --- Run selected page ---
 pg.run()
