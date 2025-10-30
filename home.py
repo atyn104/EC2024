@@ -63,10 +63,8 @@ with col2:
     # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
     Male_count = gender_distribution.get('Male', 0) 
     Female_count = gender_distribution.get('Female', 0)
-    total_gender = f"<strong>Lelaki:</strong> {male_count}<br><strong>Perempuan:</strong> {female_count}"
+    total_gender = f"<b>Lelaki:</b> {male_count}<br><b>Perempuan:</b> {female_count}"
     st.metric(label=" Total Gender ", value=total_gender, border=True)
-    st.markdown(f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>{total_gender}</div>")
-    
 
 with col3:
     # Menampilkan Overall GPA
