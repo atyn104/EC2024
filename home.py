@@ -72,7 +72,7 @@ with col2:
     
     # Paparkan jumlah lelaki dan perempuan di bawah kotak menggunakan st.markdown
     gender_summary = f"Lelaki: {male_count} | Perempuan: {female_count}"
-    st.markdown(f"<div style='font-size: 2px; padding-top: 10px;'>{gender_summary}</div>", unsafe_allow_html=True)
+    st.markdown(f"<div style='font-size: 16px; padding-top: 10px;'>{gender_summary}</div>", unsafe_allow_html=True)
 
     
 with col3:
