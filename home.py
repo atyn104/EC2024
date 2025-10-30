@@ -91,7 +91,10 @@ with col2:
 with col3:
     # Kira purata GPA (Overall)
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
-    
+
+    # Debugging to check the value of average_cgpa
+    print(average_cgpa)  # You can remove this after confirming it's working
+
     # Gabungkan informasi dalam kotak dengan HTML
     overall_gpa_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
