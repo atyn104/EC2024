@@ -62,7 +62,7 @@ with col1:
     # Gabungkan informasi dalam kotak dengan HTML
     purata_hsc_ssc_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Purata HSC dan SSC:</b> {average_hsc_ssc:.2f}
+        <b>Average HSC and SSC:</b> {average_hsc_ssc:.2f}
     </div>
     """
     
@@ -95,7 +95,7 @@ with col3:
     # Gabungkan informasi dalam kotak dengan HTML
     overall_gpa_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Overall GPA:</b> {average_cgpa:.2f}
+        <b>Overall CGPA:</b> {average_cgpa:.2f}
     </div>
     """
     
