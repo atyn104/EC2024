@@ -14,6 +14,7 @@ st.set_page_config(
 )
 
 st.title("🎓 Student Performance Metrics ")
+st.markdown("---")
 
 # Function to load data with caching
 @st.cache_data
