@@ -69,7 +69,7 @@ with col2:
     
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
-    <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
+    <div style='border=True: 2px solid #DDD; padding: 10px; font-size: 18px;'>
         <b>Total Student:</b> {total_students}<br>
         <b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}
     </div>
