@@ -45,9 +45,3 @@ with col3:
     st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}")
 
 st.divider()
-
-# --- Tampilkan data dalam format tabel untuk rujukan cepat ---
-st.subheader("Data HSC dan SSC dalam Format Tabel")
-# Menggabungkan data HSC dan SSC untuk tampilan tabel
-df_hsc_ssc = data[['HSC', 'SSC']]
-st.dataframe(df_hsc_ssc, use_container_width=True, hide_index=True)
