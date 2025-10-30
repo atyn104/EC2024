@@ -79,12 +79,12 @@ with col2:
     
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
+    gender_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Total:</b> {male_count + female_count}<br>
-        <b> M:</b> {male_count} | <b> F:</b> {female_count}
+        <b>Total:</b> {male_count + female_count} 
+        <span style="margin-left: 10px;"><b>M (Lelaki):</b> {male_count} | <b>F (Perempuan):</b> {female_count}</span>
     </div>
     """
-    
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
 
