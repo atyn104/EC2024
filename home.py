@@ -57,18 +57,17 @@ col1, col2, col3 = st.columns(3)  # 3 columns for summary box
 
 with col1:
     # Kira purata HSC dan SSC
-    average_hsc_ssc = 4.56  # Asumsi purata HSC dan SSC sudah dihitung
+    average_hsc_ssc = 4.56  # Asumsi nilai purata HSC dan SSC sudah dihitung
     
     # Gabungkan informasi dalam kotak dengan HTML
     purata_hsc_ssc_summary = f"""
-    <div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'>
+    <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
         <b>Purata HSC dan SSC:</b> {average_hsc_ssc:.2f}
     </div>
     """
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
     st.markdown(purata_hsc_ssc_summary, unsafe_allow_html=True)
-
 
 with col2:
     # Kira jumlah lelaki dan perempuan secara berasingan
@@ -80,7 +79,7 @@ with col2:
     
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
-    <div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'>
+    <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
         <b>Total Student:</b> {total_students}<br>
         <b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}
     </div>
@@ -88,19 +87,19 @@ with col2:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
-    
+
 with col3:
-    # Menghitung purata GPA (Overall)
+    # Kira purata GPA (Overall)
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
     
     # Gabungkan informasi dalam kotak dengan HTML
     overall_gpa_summary = f"""
-    <div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'>
+    <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
         <b>Overall GPA:</b> {average_cgpa:.2f}
     </div>
     """
     
-    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(overall_gpa_summary, unsafe_allow_html=True)
 
 
