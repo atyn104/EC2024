@@ -64,12 +64,11 @@ with col2:
     male_count = gender_distribution.get('Male', 0)
     female_count = gender_distribution.get('Female', 0)
     
-    # Gabungkan kedua-dua nilai dan paparkan dalam satu kotak dengan line break menggunakan Markdown
-    total_gender = f"Lelaki: {male_count}\nPerempuan: {female_count}"
+    # Gabungkan kedua-dua nilai dalam satu baris
+    gender_summary = f"Lelaki: {male_count} | Perempuan: {female_count}"
     
-    # Gunakan 'st.metric()' untuk memastikan gaya sama dengan kotak lain
-    st.metric(label="Total Gender Samples", value=total_gender, border=True)
-
+    # Gunakan st.metric untuk memaparkan dalam satu kotak dengan border
+    st.metric(label="Jumlah Gender", value=gender_summary, border=True)
 
 with col3:
     # Menampilkan Overall GPA
