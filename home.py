@@ -60,11 +60,16 @@ with col1:
     st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}",border=True)
 
 with col2:
-    # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
-    Male_count = gender_distribution.get('Male', 0) 
-    Female_count = gender_distribution.get('Female', 0)
-    total_gender = f"<b>Lelaki:</b> {male_count}<br><b>Perempuan:</b> {female_count}"
-    st.markdown(f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>{total_gender}</div>", unsafe_allow_html=True)
+    # Kira jumlah lelaki dan perempuan secara berasingan
+    male_count = gender_distribution.get('Male', 0)
+    female_count = gender_distribution.get('Female', 0)
+    
+    # Gabungkan kedua-dua nilai dan paparkan dalam satu kotak dengan line break menggunakan Markdown
+    total_gender = f"Lelaki: {male_count}\nPerempuan: {female_count}"
+    
+    # Gunakan 'st.metric()' untuk memastikan gaya sama dengan kotak lain
+    st.metric(label="Total Gender Samples", value=total_gender, border=True)
+
 
 with col3:
     # Menampilkan Overall GPA
