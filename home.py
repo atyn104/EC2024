@@ -60,12 +60,12 @@ with col1:
 with col2:
     # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
     total_gender = gender_distribution.get('Male', 0) + gender_distribution.get('Female', 0)
-    st.metric(label="Total Gender Samples", value=total_gender)
+    st.metric(label="Total Gender Samples", value=total_gender,border=True)
 
 with col3:
     # Menampilkan Overall GPA
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
-    st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}")
+    st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}",border=True)
 
 st.markdown("---")
 
