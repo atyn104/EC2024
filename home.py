@@ -14,7 +14,6 @@ st.set_page_config(
 )
 
 st.title("🎓 Student Performance Metrics ")
-st.markdown("---")
 
 # Function to load data with caching
 @st.cache_data
@@ -104,6 +103,7 @@ with col3:
 
 
 # Show raw data preview
+st.markdown("---")
 st.subheader("1. Raw Data Preview")
 st.dataframe(Computer_Science_and_Engineering_df.head(), use_container_width=True)
-st.markdown("---")
+
