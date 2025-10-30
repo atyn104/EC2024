@@ -9,7 +9,7 @@ except Exception as e:
     st.error(f"Gagal memuat data dari GitHub: {e}")
     # Inisialisasi data dummy jika gagal memuat
     data = pd.DataFrame({
-        'CGPA': [3.5, 3.2, 3.8, 4.0, 2.9],
+        'Overall': [3.5, 3.2, 3.8, 4.0, 2.9],
         'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
         'Attendance': ['More than 3 Hours', 'Less than 3 Hours', 'More than 3 Hours', 'More than 3 Hours', 'Less than 3 Hours']
     })
@@ -21,7 +21,7 @@ st.set_page_config(page_title="🎓 Student Performance Metrics", layout="wide")
 # --- KOMPUTASI DATA YANG HILANG ---
 
 # 2. KOMPUTASI: Hitung rata-rata, distribusi gender, dan kehadiran DENGAN MENGGUNAKAN 'data'
-average_cgpa = data['CGPA'].mean() # Asumsi nama kolom CGPA adalah 'CGPA'
+average_cgpa = data['Overall'].mean() # Asumsi nama kolom CGPA adalah 'CGPA'
 
 # Hitung distribusi gender (Asumsi nama kolom adalah 'Gender')
 gender_distribution = data['Gender'].value_counts().to_dict()
