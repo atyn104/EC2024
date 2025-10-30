@@ -63,8 +63,7 @@ with col2:
     # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
     Male_count = gender_distribution.get('Male', 0) 
     Female_count = gender_distribution.get('Female', 0)
-    total_gender = f"Male: {male_count},
-                   Female: {female_count}"
+    total_gender = f"Male: {male_count},\nFemale: {female_count}"
     st.metric(label=" Total Gender ", value=total_gender, border=True)
 
 with col3:
