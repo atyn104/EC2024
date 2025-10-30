@@ -57,7 +57,18 @@ col1, col2, col3 = st.columns(3)  # 3 columns for summary box
 
 with col1:
     # Kira purata HSC dan SSC
-    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}", border=True)
+    average_hsc_ssc = 4.56  # Asumsi purata HSC dan SSC sudah dihitung
+    
+    # Gabungkan informasi dalam kotak dengan HTML
+    purata_hsc_ssc_summary = f"""
+    <div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'>
+        <b>Purata HSC dan SSC:</b> {average_hsc_ssc:.2f}
+    </div>
+    """
+    
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
+    st.markdown(purata_hsc_ssc_summary, unsafe_allow_html=True)
+
 
 with col2:
     # Kira jumlah lelaki dan perempuan secara berasingan
@@ -69,7 +80,7 @@ with col2:
     
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
-    <div style='border: 10px solid #DDD; padding: 10px; font-size: 18px;'>
+    <div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'>
         <b>Total Student:</b> {total_students}<br>
         <b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}
     </div>
@@ -79,9 +90,19 @@ with col2:
     st.markdown(gender_summary, unsafe_allow_html=True)
     
 with col3:
-    # Menampilkan Overall GPA
+    # Menghitung purata GPA (Overall)
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
-    st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}",border=True)
+    
+    # Gabungkan informasi dalam kotak dengan HTML
+    overall_gpa_summary = f"""
+    <div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'>
+        <b>Overall GPA:</b> {average_cgpa:.2f}
+    </div>
+    """
+    
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
+    st.markdown(overall_gpa_summary, unsafe_allow_html=True)
+
 
 # Show raw data preview
 st.subheader("1. Raw Data Preview")
