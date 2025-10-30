@@ -24,5 +24,5 @@ with col2:
     st.metric(label="Total Gender Samples", value=male_and_female)
     
 with col3:
-    st.metric(label="Attendance", value=str"(attendance_distribution['More than 3 Hours'])")
+    st.metric(label="Attendance", value=attendance_distribution['More than 3 Hours'])
 
