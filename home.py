@@ -87,7 +87,7 @@ with col2:
     """
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
-
+    
 with col3:
     # Kira purata GPA (Overall)
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
