@@ -73,7 +73,7 @@ st.divider()
 # --- Tampilkan data dalam format tabel untuk rujukan cepat ---
 st.subheader("Data Kehadiran dalam Format Tabel")
 # Konversi kembali ke DataFrame untuk tampilan yang bersih
-      df_counts = pd.DataFrame(
+df_counts = pd.DataFrame(
             list(attendance_counts.items()), 
             columns=['Kategori Kehadiran', 'Jumlah Mahasiswa']
 )
