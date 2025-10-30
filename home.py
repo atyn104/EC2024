@@ -64,8 +64,11 @@ with col2:
     male_count = gender_distribution.get('Male', 0)
     female_count = gender_distribution.get('Female', 0)
     
-    # Gabungkan kedua-dua nilai dalam satu baris
-    gender_summary = f"<b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}"
+    # Kira jumlah keseluruhan pelajar
+    total_students = male_count + female_count
+    
+    # Gabungkan ketiga-tiga maklumat dalam satu kotak
+    gender_summary = f"<b>Total Student:</b> {total_students}<br><b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}"
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan saiz font yang dikawal
     st.markdown(f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 16px;'>{gender_summary}</div>", unsafe_allow_html=True)
