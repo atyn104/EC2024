@@ -56,21 +56,18 @@ female_count = gender_distribution.get('Female', 0)
 col1, col2, col3 = st.columns(3)  # 3 columns for summary box
 
 with col1:
-    # Kira jumlah lelaki dan perempuan secara berasingan
-    male_count = gender_distribution.get('Male', 0)
-    female_count = gender_distribution.get('Female', 0)
+    # Kira purata HSC dan SSC
+    average_hsc_ssc = 4.56  # Asumsi nilai purata HSC dan SSC sudah dihitung
     
-    # Gabungkan maklumat dalam satu kotak menggunakan HTML
-    gender_summary = f"""
+    # Gabungkan informasi dalam kotak dengan HTML
+    purata_hsc_ssc_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Total:</b> {male_count + female_count}<br>
-        <b>M (M):</b> {male_count} | <b>F (F):</b> {female_count}
+        <b>Purata HSC dan SSC:</b> {average_hsc_ssc:.2f}
     </div>
     """
     
-    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
-    st.markdown(gender_summary, unsafe_allow_html=True)
-
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
+    st.markdown(purata_hsc_ssc_summary, unsafe_allow_html=True)
 
 with col2:
     # Kira jumlah lelaki dan perempuan secara berasingan
@@ -83,8 +80,8 @@ with col2:
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Total Student:</b> {total_students}<br>
-        <b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}
+        <b>Total:</b> {male_count + female_count}<br>
+        <b> M:</b> {male_count} | <b> F:</b> {female_count}
     </div>
     """
     
