@@ -1,18 +1,33 @@
 import streamlit as st
+
+# Set the page config
 st.set_page_config(page_title="Student Performance Metrics")
 
 # --- Page definitions ---
 # PASTIKAN Anda menyertakan "pages/" di sini
-home = st.Page("home.py", title="Homepage", icon=":material/home:", default=True)
-performance = st.Page("Performance Metrics.py", title=" Objective Number 1 ", icon=":material/insights:")
-objective2 = st.Page("obj number 2.py", title=" Objective Number 2 ", icon=":material/insights:")
-objective3 = st.Page("obj number 3.py", title=" Objective Number 3 ", icon=":material/insights:")
+home = "home.py"
+performance = "Performance Metrics.py"
+objective2 = "obj number 2.py"
+objective3 = "obj number 3.py"
 
 # --- Navigation menu ---
-pg = st.navigation({ 
-    "Menu": [home],
-    "📊 Visualization Pages": [performance, objective2, objective3], 
-})
+page = st.sidebar.radio("Navigate", 
+                       ["Homepage", "Objective Number 1", "Objective Number 2", "Objective Number 3"])
 
 # --- Run the selected page ---
-  pg.run() # Baris ini sekarang seharusnya bekerja
+if page == "Homepage":
+    st.write(f"Loading {home}...")
+    # You can import and display the contents of home.py here, like:
+    # exec(open('pages/home.py').read())
+
+elif page == "Objective Number 1":
+    st.write(f"Loading {performance}...")
+    # exec(open('pages/Performance Metrics.py').read())
+
+elif page == "Objective Number 2":
+    st.write(f"Loading {objective2}...")
+    # exec(open('pages/obj number 2.py').read())
+
+elif page == "Objective Number 3":
+    st.write(f"Loading {objective3}...")
+    # exec(open('pages/obj number 3.py').read())
