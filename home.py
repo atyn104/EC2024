@@ -56,8 +56,8 @@ female_count = gender_distribution.get('Female', 0)
 col1, col2, col3 = st.columns(3)  # 3 columns for summary box
 
 with col1:
-    # 3. KOREKSI: Menggunakan variabel yang sudah dihitung
-    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}",border=True)
+    # Kira purata HSC dan SSC
+    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}", border=True)
 
 with col2:
     # Kira jumlah lelaki dan perempuan secara berasingan
@@ -67,11 +67,9 @@ with col2:
     # Kira jumlah keseluruhan pelajar
     total_students = male_count + female_count
     
-    # Gabungkan ketiga-tiga maklumat dalam satu kotak dengan HTML
-    gender_summary = f"<div style='border: 14px solid #DDD; padding: 10px; font-size: 18px;'> <b>Total Student:</b> {total_students}<br><b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}</div>"
-    
-    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan gaya HTML
-    st.markdown(gender_summary, unsafe_allow_html=True)
+    # Gabungkan maklumat dalam satu kotak menggunakan st.metric dan border
+    st.metric(label="Total Student", value=f"{total_students}", delta=f"Lelaki: {male_count} | Perempuan: {female_count}", border=True)
+
     
 with col3:
     # Menampilkan Overall GPA
