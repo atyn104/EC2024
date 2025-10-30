@@ -67,16 +67,16 @@ with col2:
     # Kira jumlah keseluruhan pelajar
     total_students = male_count + female_count
     
-    # Paparkan Total Student menggunakan st.metric
-    st.metric(label="Total Student", value=f"{total_students}", border=True)
+    # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
+    gender_summary = f"""
+    <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
+        <b>Total Student:</b> {total_students}<br>
+        <b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}
+    </div>
+    """
     
-    # Gabungkan jumlah lelaki dan perempuan dalam kotak yang sama
-    gender_summary = f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>Lelaki: {male_count} | Perempuan: {female_count}</div>"
-    
-    # Gunakan st.markdown untuk memaparkan jumlah lelaki dan perempuan dalam kotak dengan border
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
-
-
     
 with col3:
     # Menampilkan Overall GPA
