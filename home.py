@@ -67,8 +67,6 @@ with col3:
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
     st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}",border=True)
 
-st.markdown("---")
-
 # Show raw data preview
 st.subheader("1. Raw Data Preview")
 st.dataframe(Computer_Science_and_Engineering_df.head(), use_container_width=True)
