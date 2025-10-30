@@ -65,7 +65,6 @@ with col2:
     Female_count = gender_distribution.get('Female', 0)
     total_gender = f"<b>Lelaki:</b> {male_count}<br><b>Perempuan:</b> {female_count}"
     st.markdown(f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>{total_gender}</div>", unsafe_allow_html=True)
-    st.metric(label=" Total Gender ", value=total_gender, border=True)
 
 with col3:
     # Menampilkan Overall GPA
