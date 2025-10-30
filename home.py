@@ -65,10 +65,10 @@ with col2:
     female_count = gender_distribution.get('Female', 0)
     
     # Gabungkan kedua-dua nilai dalam satu baris
-    gender_summary = f"Lelaki: {male_count} | Perempuan: {female_count}"
+    gender_summary = f"<b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}"
     
-    # Gunakan st.metric untuk memaparkan dalam satu kotak dengan border
-    st.metric(label="Jumlah Gender", value=gender_summary, border=True)
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan saiz font yang dikawal
+    st.markdown(f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 16px;'>{gender_summary}</div>", unsafe_allow_html=True)
 
 with col3:
     # Menampilkan Overall GPA
