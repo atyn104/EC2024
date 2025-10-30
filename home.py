@@ -79,22 +79,19 @@ with col2:
     
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
-    gender_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
         <b>Total:</b> {male_count + female_count} 
         <span style="margin-left: 10px;"><b>M (Lelaki):</b> {male_count} | <b>F (Perempuan):</b> {female_count}</span>
     </div>
     """
+    
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
-    
+
 with col3:
     # Kira purata GPA (Overall)
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
-
-    # Debugging to check the value of average_cgpa
-    print(average_cgpa)  # You can remove this after confirming it's working
-
+    
     # Gabungkan informasi dalam kotak dengan HTML
     overall_gpa_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
@@ -104,6 +101,7 @@ with col3:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(overall_gpa_summary, unsafe_allow_html=True)
+
 
 # Show raw data preview
 st.subheader("1. Raw Data Preview")
