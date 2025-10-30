@@ -17,7 +17,7 @@ plo_4_value = 4.0
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    try:
+try:
     # Ganti 'nama_kolom_cgpa' dengan nama kolom yang benar
     average_cgpa = df['Overall'].mean() 
 except NameError:
