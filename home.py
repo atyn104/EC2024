@@ -67,11 +67,11 @@ with col2:
     # Kira jumlah keseluruhan pelajar
     total_students = male_count + female_count
     
-    # Gabungkan ketiga-tiga maklumat dalam satu string untuk ditampilkan dalam kotak
+    # Gabungkan kedua-dua nilai dalam satu baris untuk ditampilkan di sebelah nilai "Total Student"
     gender_summary = f"Lelaki: {male_count} | Perempuan: {female_count}"
     
-    # Gunakan st.metric untuk memaparkan dalam satu kotak yang sederhana
-    st.metric(label="Total Student",\nvalue=f"{total_students}", delta=gender_summary, border=True)
+    # Gunakan st.metric untuk memaparkan dalam satu kotak dengan nilai 443 dan delta
+    st.metric(label="Total Student", value=f"{total_students}", delta=gender_summary, delta_color="green", border=True)
 
 
 with col3:
