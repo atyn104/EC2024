@@ -49,8 +49,9 @@ average_hsc_ssc = hsc_ssc_avg.mean()
 # Hitung distribusi gender (Asumsi nama kolom adalah 'Gender')
 gender_distribution = Computer_Science_and_Engineering_df['Gender'].value_counts().to_dict()
 
-# Displaying summary boxes
-col1, col2, col3 = st.columns(3)
+# --- Displaying summary boxes ---
+# Create 3 columns for a clean, organized summary box
+col1, col2, col3 = st.columns(3)  # 3 columns for summary box
 
 with col1:
     # 3. KOREKSI: Menggunakan variabel yang sudah dihitung
