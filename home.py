@@ -9,72 +9,45 @@ except Exception as e:
     st.error(f"Gagal memuat data dari GitHub: {e}")
     # Inisialisasi data dummy jika gagal memuat
     data = pd.DataFrame({
+        'HSC': [4.75, 4.42, 4.50, 3.32, 3.33],
+        'SSC': [4.05, 5.00, 4.81, 4.50, 4.95],
         'Overall': [3.5, 3.2, 3.8, 4.0, 2.9],
         'Gender': ['Male', 'Female', 'Male', 'Female', 'Male']
     })
-
 
 # Set page configuration
 st.set_page_config(page_title="🎓 Student Performance Metrics", layout="wide")
 
 # --- KOMPUTASI DATA YANG HILANG ---
 
-# 2. KOMPUTASI: Hitung rata-rata, distribusi gender, dan kehadiran DENGAN MENGGUNAKAN 'data'
-average_cgpa = data['Overall'].mean() # Asumsi nama kolom CGPA adalah 'CGPA'
+# 2. KOMPUTASI: Hitung rata-rata HSC dan SSC
+hsc_ssc_avg = (data['HSC'] + data['SSC']) / 2  # Menggabungkan nilai HSC dan SSC
+average_hsc_ssc = hsc_ssc_avg.mean()
 
 # Hitung distribusi gender (Asumsi nama kolom adalah 'Gender')
 gender_distribution = data['Gender'].value_counts().to_dict()
-
-# Hitung distribusi kehadiran (Asumsi nama kolom adalah 'Attendance')
-attendance_distribution = data['Attendance'].value_counts().to_dict()
-
-# --- Sample data for the summary box (Opsional, tapi disimpan) ---
-plo_2_value = 3.3
-plo_3_value = 3.5
-plo_4_value = 4.0
 
 # --- Displaying summary boxes ---
 col1, col2, col3 = st.columns(3)
 
 with col1:
     # 3. KOREKSI: Menggunakan variabel yang sudah dihitung
-    st.metric(label="Overall CGPA", value=f"{average_cgpa:.2f}")
+    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}")
 
 with col2:
     # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
-    # Menggunakan .get(key, 0) untuk menangani kasus jika kunci tidak ada
     total_gender = gender_distribution.get('Male', 0) + gender_distribution.get('Female', 0)
     st.metric(label="Total Gender Samples", value=total_gender)
 
 with col3:
-   # --- 1. KOMPUTASI DATA KEHADIRAN ---
-# Hitung jumlah entri untuk setiap kategori di kolom 'Attendance'
-    attendance_counts = df['Attendance'].value_counts().to_dict()
-
-    total_student = df.shape[0]
-
-# --- 2. TAMPILKAN NILAI MENTAH (METRIK DAN TEKS) ---
-    st.title("Nilai Mentah Kehadiran (Attendance)")
-    st.subheader(f"Total Sampel Mahasiswa: {total_mahasiswa}")
-
-# Tampilkan metrik untuk setiap kategori (Menggunakan kolom untuk susunan yang rapi)
-    kategori = list(attendance_counts.keys())
-    nilai = list(attendance_counts.values())
-
-# Buat kolom berdasarkan jumlah kategori yang ada
-    cols = st.columns(len(kategori))
-
-for i, (kat, nil) in enumerate(zip(kategori, nilai)):
-    with cols[i]:
-        st.metric(label=f"Kategori {kat}", value=nil)
+    # Menampilkan Overall GPA
+    average_cgpa = data['Overall'].mean()  # Menghitung purata GPA
+    st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}")
 
 st.divider()
 
 # --- Tampilkan data dalam format tabel untuk rujukan cepat ---
-st.subheader("Data Kehadiran dalam Format Tabel")
-# Konversi kembali ke DataFrame untuk tampilan yang bersih
-df_counts = pd.DataFrame(
-            list(attendance_counts.items()), 
-            columns=['Kategori Kehadiran', 'Jumlah Mahasiswa']
-)
-st.dataframe(df_counts, use_container_width=True, hide_index=True)
+st.subheader("Data HSC dan SSC dalam Format Tabel")
+# Menggabungkan data HSC dan SSC untuk tampilan tabel
+df_hsc_ssc = data[['HSC', 'SSC']]
+st.dataframe(df_hsc_ssc, use_container_width=True, hide_index=True)
