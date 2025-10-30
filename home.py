@@ -10,8 +10,7 @@ except Exception as e:
     # Inisialisasi data dummy jika gagal memuat
     data = pd.DataFrame({
         'Overall': [3.5, 3.2, 3.8, 4.0, 2.9],
-        'Gender': ['Male', 'Female', 'Male', 'Female', 'Male'],
-        'Attendance': ['More than 3 Hours', 'Less than 3 Hours', 'More than 3 Hours', 'More than 3 Hours', 'Less than 3 Hours']
+        'Gender': ['Male', 'Female', 'Male', 'Female', 'Male']
     })
 
 
@@ -48,6 +47,34 @@ with col2:
     st.metric(label="Total Gender Samples", value=total_gender)
 
 with col3:
-    # 5. KOREKSI: Menggunakan .get(key, 0) untuk menghindari KeyError jika kategori tidak ada
-    attendance_value = attendance_distribution.get('More than 3 Hours', 0)
-    st.metric(label="Attendance (>3 Jam)", value=attendance_value)
+   # --- 1. KOMPUTASI DATA KEHADIRAN ---
+# Hitung jumlah entri untuk setiap kategori di kolom 'Attendance'
+    attendance_counts = df['Attendance'].value_counts().to_dict()
+
+    total_student = df.shape[0]
+
+# --- 2. TAMPILKAN NILAI MENTAH (METRIK DAN TEKS) ---
+    st.title("Nilai Mentah Kehadiran (Attendance)")
+    st.subheader(f"Total Sampel Mahasiswa: {total_mahasiswa}")
+
+# Tampilkan metrik untuk setiap kategori (Menggunakan kolom untuk susunan yang rapi)
+    kategori = list(attendance_counts.keys())
+    nilai = list(attendance_counts.values())
+
+# Buat kolom berdasarkan jumlah kategori yang ada
+    cols = st.columns(len(kategori))
+
+for i, (kat, nil) in enumerate(zip(kategori, nilai)):
+    with cols[i]:
+        st.metric(label=f"Kategori {kat}", value=nil)
+
+st.divider()
+
+# --- Tampilkan data dalam format tabel untuk rujukan cepat ---
+     st.subheader("Data Kehadiran dalam Format Tabel")
+# Konversi kembali ke DataFrame untuk tampilan yang bersih
+      df_counts = pd.DataFrame(
+            list(attendance_counts.items()), 
+            columns=['Kategori Kehadiran', 'Jumlah Mahasiswa']
+)
+st.dataframe(df_counts, use_container_width=True, hide_index=True)
