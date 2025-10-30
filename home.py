@@ -55,7 +55,7 @@ col1, col2, col3 = st.columns(3)  # 3 columns for summary box
 
 with col1:
     # 3. KOREKSI: Menggunakan variabel yang sudah dihitung
-    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}")
+    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}",border=True)
 
 with col2:
     # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
