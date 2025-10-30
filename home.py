@@ -18,7 +18,7 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
      try:
-        average_cgpa = df['Computer_Science_and_Engineering_data.csv'].mean() 
+        average_cgpa = df["Computer_Science_and_Engineering_data.csv"].mean() 
      except NameError:
         # Jika df belum didefinisikan, Anda harus memuatnya dulu.
         # Contoh pemuatan data dummy jika Anda belum melakukannya:
