@@ -15,4 +15,4 @@ pg = st.navigation({
 })
 
 # --- Run the selected page ---
-pg.run() # Baris ini sekarang seharusnya bekerja
+  pg.run() # Baris ini sekarang seharusnya bekerja
