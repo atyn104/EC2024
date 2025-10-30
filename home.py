@@ -71,7 +71,7 @@ for i, (kat, nil) in enumerate(zip(kategori, nilai)):
 st.divider()
 
 # --- Tampilkan data dalam format tabel untuk rujukan cepat ---
-     st.subheader("Data Kehadiran dalam Format Tabel")
+st.subheader("Data Kehadiran dalam Format Tabel")
 # Konversi kembali ke DataFrame untuk tampilan yang bersih
       df_counts = pd.DataFrame(
             list(attendance_counts.items()), 
