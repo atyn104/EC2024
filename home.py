@@ -80,8 +80,8 @@ with col2:
     # Gabungkan kedua-dua nilai dalam satu kotak dengan HTML
     gender_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Total:</b> {male_count + female_count}<br>
-        <b> M:</b> {male_count} | <b> F:</b> {female_count}
+        <b>Total Student:</b> {total_students}<br>
+        <b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}
     </div>
     """
     
@@ -101,7 +101,6 @@ with col3:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(overall_gpa_summary, unsafe_allow_html=True)
-
 
 # Show raw data preview
 st.subheader("1. Raw Data Preview")
