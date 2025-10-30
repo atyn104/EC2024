@@ -24,7 +24,7 @@ with col1:
         # Contoh pemuatan data dummy jika Anda belum melakukannya:
         data = {'CGPA': [3.5, 3.2, 3.8, 4.0, 2.9]}
         df = pd.DataFrame(data)
-        average_cgpa = df['Computer_Science_and_Engineering_data.csv'].mean()
+        average_cgpa = df['Overall'].mean()
         st.metric(label="Overall", value=f"{average_cgpa:.2f}")
     
 with col2:
