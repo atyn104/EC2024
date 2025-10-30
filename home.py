@@ -68,7 +68,7 @@ with col2:
     total_students = male_count + female_count
     
     # Gabungkan ketiga-tiga maklumat dalam satu kotak dengan HTML
-    gender_summary = f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'> <b>Total Student:</b> {total_students}<br><b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}</div>"
+    gender_summary = f"<div style='border=True: 2px solid #DDD; padding: 10px; font-size: 18px;'> <b>Total Student:</b> {total_students}<br><b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}</div>"
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan gaya HTML
     st.markdown(gender_summary, unsafe_allow_html=True)
