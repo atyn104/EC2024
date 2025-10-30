@@ -71,7 +71,7 @@ with col2:
     gender_summary = f"Lelaki: {male_count} | Perempuan: {female_count}"
     
     # Gunakan st.metric untuk memaparkan dalam satu kotak yang sederhana
-    st.metric(label="Total Student", value=f"{total_students}", delta=gender_summary, border=True)
+    st.metric(label="Total Student"\nvalue=f"{total_students}", delta=gender_summary, border=True)
 
 
 with col3:
