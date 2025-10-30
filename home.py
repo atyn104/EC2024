@@ -67,14 +67,12 @@ with col2:
     # Kira jumlah keseluruhan pelajar
     total_students = male_count + female_count
     
-    # Paparkan 'Total Student' menggunakan st.metric
-    st.metric(label="Total Student", value=f"{total_students}", border=True)
+    # Gabungkan ketiga-tiga maklumat dalam satu kotak dengan HTML
+    gender_summary = f"<div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'> <b>Total Student:</b> {total_students}<br><b>Lelaki:</b> {male_count} | <b>Perempuan:</b> {female_count}</div>"
     
-    # Paparkan jumlah lelaki dan perempuan di bawah kotak menggunakan st.markdown
-    gender_summary = f"Lelaki: {male_count} | Perempuan: {female_count}"
-    st.markdown(f"<div style='font-size: 16px; padding-top: 10px;'>{gender_summary}</div>", unsafe_allow_html=True)
-
-
+    # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan gaya HTML
+    st.markdown(gender_summary, unsafe_allow_html=True)
+    
 with col3:
     # Menampilkan Overall GPA
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
