@@ -16,34 +16,6 @@ st.set_page_config(
 st.title("🎓 Student Performance Metrics ")
 st.markdown("---")
 
-# --- KOMPUTASI DATA YANG HILANG ---
-
-# 2. KOMPUTASI: Hitung rata-rata HSC dan SSC
-hsc_ssc_avg = (Computer_Science_and_Engineering_df['HSC'] + Computer_Science_and_Engineering_df['SSC']) / 2  # Menggabungkan nilai HSC dan SSC
-average_hsc_ssc = hsc_ssc_avg.mean()
-
-# Hitung distribusi gender (Asumsi nama kolom adalah 'Gender')
-gender_distribution = Computer_Science_and_Engineering_df['Gender'].value_counts().to_dict()
-
-# Displaying summary boxes
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    # 3. KOREKSI: Menggunakan variabel yang sudah dihitung
-    st.metric(label="Purata HSC dan SSC", value=f"{average_hsc_ssc:.2f}")
-
-with col2:
-    # 4. KOREKSI: Pastikan kunci 'Male' dan 'Female' ada, lalu hitung totalnya.
-    total_gender = gender_distribution.get('Male', 0) + gender_distribution.get('Female', 0)
-    st.metric(label="Total Gender Samples", value=total_gender)
-
-with col3:
-    # Menampilkan Overall GPA
-    average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
-    st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}")
-
-st.markdown("---")
-
 # Function to load data with caching
 @st.cache_data
 def load_data(data_url):
@@ -60,10 +32,13 @@ Computer_Science_and_Engineering_df = load_data(url)
 if Computer_Science_and_Engineering_df.empty:
     st.stop()
 
-# Show raw data preview
-st.subheader("1. Raw Data Preview")
-st.dataframe(Computer_Science_and_Engineering_df.head(), use_container_width=True)
-st.markdown("---")
+# Clean and convert 'HSC' and 'SSC' columns to numeric, handling errors or missing data
+Computer_Science_and_Engineering_df['HSC'] = pd.to_numeric(Computer_Science_and_Engineering_df['HSC'], errors='coerce')
+Computer_Science_and_Engineering_df['SSC'] = pd.to_numeric(Computer_Science_and_Engineering_df['SSC'], errors='coerce')
+
+# Replace NaN values with the column mean (optional, can replace with 0 or other value)
+Computer_Science_and_Engineering_df['HSC'].fillna(Computer_Science_and_Engineering_df['HSC'].mean(), inplace=True)
+Computer_Science_and_Engineering_df['SSC'].fillna(Computer_Science_and_Engineering_df['SSC'].mean(), inplace=True)
 
 # --- KOMPUTASI DATA YANG HILANG ---
 
@@ -91,4 +66,9 @@ with col3:
     average_cgpa = Computer_Science_and_Engineering_df['Overall'].mean()  # Menghitung purata GPA
     st.metric(label="Overall GPA", value=f"{average_cgpa:.2f}")
 
+st.markdown("---")
+
+# Show raw data preview
+st.subheader("1. Raw Data Preview")
+st.dataframe(Computer_Science_and_Engineering_df.head(), use_container_width=True)
 st.markdown("---")
