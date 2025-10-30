@@ -17,16 +17,15 @@ plo_4_value = 4.0
 col1, col2, col3 = st.columns(3)
 
 with col1:
-try:
-    # Ganti 'nama_kolom_cgpa' dengan nama kolom yang benar
-    average_cgpa = df['Overall'].mean() 
-except NameError:
-    # Jika df belum didefinisikan, Anda harus memuatnya dulu.
-    # Contoh pemuatan data dummy jika Anda belum melakukannya:
-    data = {'CGPA': [3.5, 3.2, 3.8, 4.0, 2.9]}
-    df = pd.DataFrame(data)
-    average_cgpa = df['Overall'].mean()
-    st.metric(label="Overall", value=f"{average_cgpa:.2f}")
+     try:
+        average_cgpa = df['Overall'].mean() 
+     except NameError:
+        # Jika df belum didefinisikan, Anda harus memuatnya dulu.
+        # Contoh pemuatan data dummy jika Anda belum melakukannya:
+        data = {'CGPA': [3.5, 3.2, 3.8, 4.0, 2.9]}
+        df = pd.DataFrame(data)
+        average_cgpa = df['Overall'].mean()
+        st.metric(label="Overall", value=f"{average_cgpa:.2f}")
     
 with col2:
     male_and_female = gender_distribution['Male'] + gender_distribution['Female']
