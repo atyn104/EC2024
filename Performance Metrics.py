@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🎓 Student Performance Metrics ")
+st.title(" Objective 1 ")
 st.markdown("---")
 
 # Function to load data with caching
