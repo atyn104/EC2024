@@ -16,14 +16,6 @@ st.set_page_config(
 st.title("🎓 Student Performance Metrics ")
 st.markdown("---")
 
-col1, col2, col3 = st.columns(3)
-   
-col1.metric(label="PLO 2", value=f"3.3", help="PLO 2: Cognitive Skill", border=True)
-col2.metric(label="PLO 3", value=f"3.5", help="PLO 3: Digital Skill", border=True)
-col3.metric(label="PLO 4", value=f"4.0", help="PLO 4: Interpersonal Skill", border=True)
-st.markdown("---")
-
-
 # Function to load data with caching
 @st.cache_data
 def load_data(data_url):
@@ -34,18 +26,15 @@ def load_data(data_url):
         st.error(f"An error occurred while loading the file from the URL: {e}")
         return pd.DataFrame()
 
+# Load data
 Computer_Science_and_Engineering_df = load_data(url)
 
 if Computer_Science_and_Engineering_df.empty:
     st.stop()
-    
-st.subheader("1. Raw Data Preview")
-st.dataframe(Computer_Science_and_Engineering_df.head(), use_container_width=True)
-st.markdown("---")
 
 # ---NO 1 Plotly Pie Chart (Distribution of Gender) ---
 st.subheader("2. Distribution of Gender in Computer Science and Engineering Department")
-    
+
 if 'Gender' in Computer_Science_and_Engineering_df.columns:
     # Count the occurrences of each gender
     gender_counts_df = Computer_Science_and_Engineering_df['Gender'].value_counts().reset_index()
@@ -111,7 +100,7 @@ def create_hometown_gender_plot(counts):
 create_hometown_gender_plot(hometown_gender_counts)
 st.markdown("---")
 
-        # ---NO 3 Income Level Distribution by Gender  ---
+# ---NO 3 Income Level Distribution by Gender ---
 
 st.title("Income Level Distribution by Gender")
 
