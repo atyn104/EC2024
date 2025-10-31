@@ -95,7 +95,7 @@ with col2:
 
 with col3:
     # Kira purata GPA (Overall)
-    max_cgpa = Computer_Science_and_Engineering_df['Overall'].max()  # Menghitung purata GPA
+    max_gpa = Computer_Science_and_Engineering_df['Overall'].max()  # Menghitung purata GPA
     
     # Gabungkan informasi dalam kotak dengan HTML
     overall_gpa_summary = f"""
