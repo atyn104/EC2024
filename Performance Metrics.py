@@ -58,6 +58,9 @@ if 'Gender' in Computer_Science_and_Engineering_df.columns:
     
     # Display the Plotly chart in Streamlit
     st.plotly_chart(fig_pie, use_container_width=True)
+    st.markdown("""
+-The pie chart above shows the gender distribution in the computer science and engineering department. We can see that the total number of male students, which is 68.2% in this department, is higher than the total number of female students, which is 31.8%.
+""")
 st.markdown("---")
 
 # ---NO 2 Student Count by Hometown and Gender ---
