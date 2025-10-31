@@ -6,7 +6,7 @@ import seaborn as sns
 
 st.header("Objective 2")
 st.markdown("---")
-st.title("1. Relationship Between English Skill Rating vs. Overall GPA Analysis")
+st.subheader("i. Relationship Between English Skill Rating vs. Overall GPA Analysis ")
 
 # 1. Load the data
 try:
@@ -43,7 +43,7 @@ create_regression_plot(df)
 
 ###
 
-st.title("2. Overall GPA Distribution by Semester Analysis")
+st.subheader(" ii. Overall GPA Distribution by Semester Analysis ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
@@ -89,7 +89,7 @@ create_violin_plot(df, existing_semesters)
 
 ####
 
-st.title("3. Overall GPA Distribution by Extra Curricular Activity Status")
+st.subheader(" iii. Overall GPA Distribution by Extra Curricular Activity Status ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
