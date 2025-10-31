@@ -90,6 +90,12 @@ def create_violin_plot(data, order):
 
 # 4. Run the function
 create_violin_plot(df, existing_semesters)
+st.markdown("""
+-The violin plot graph above shows the comparison of Overall CGPA between Semesters in the computer science and engineering departments. The lowest CGPA values ​​obtained from students show an increase from semester 3 to semester 4. 
+This shows that students who performed poorly at the initial stage have shown an improvement. In addition, the distribution of CGPA values ​​shows a shift towards higher values ​​and reflects a higher increase in academic performance to remain in the department. 
+In semester 6, it will show performance where there are two groups, namely those who perform well and those who struggle with low achievement.
+""")
+st.markdown("---")
 
 ####
 
