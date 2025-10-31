@@ -4,7 +4,9 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.header("Objective 2")
+st.header("Objective 2: to analyze and compare the demographic profiles and socioeconomic backgrounds of students, 
+           with a focus on gender distribution within the Computer Science and Engineering department, 
+           place of origin, and income level.")
 st.markdown("---")
 st.subheader("i. Relationship Between English Skill Rating vs. Overall GPA Analysis ")
 
