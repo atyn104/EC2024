@@ -137,6 +137,11 @@ def create_violin_plot_extra(data):
 
 # 3. Run the function
 create_violin_plot_extra(df)
+st.markdown("""
+-The violin plot graph above shows the comparison of Overall CGPA between the Co-Curricular Activity Involvement Status in the computer science and engineering departments. It shows a positive correlation in this comparison. 
+Here it has two categories, namely those who are involved and those who are not involved in co-curricular activities. For students who are not involved, the graph shows that the majority of students achieve a moderate to good CGPA and it also involves some low-performing students. 
+For students who are involved, the graph expands slightly at the top. This shows that more students are active in co-curricular activities and get high CGPA values.
+""")
 
 # Optional: Add a note about the data distribution
 if 'No' not in df['Extra'].unique():
