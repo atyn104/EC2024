@@ -126,6 +126,9 @@ def create_grouped_hometown_plot(counts):
 
 # 5. Run the function
 create_grouped_hometown_plot(attendance_hometown_counts)
+st.markdown("""
+-The bar graph plot above shows the number of students according to attendance rate and hometown. In the very low attendance range of below 40% and 40%-59%, students from rural areas show more in low attendance numbers. In medium to high attendance, in both high attendance ranges, students from rural areas always exceed students from urban areas.
+""")
 st.markdown("---")
 
 # Add a note based on the specific data
