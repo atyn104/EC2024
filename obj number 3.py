@@ -64,6 +64,7 @@ def create_grouped_attendance_plot(data):
 
 # 5. Run the function
 create_grouped_attendance_plot(attendance_gender_counts)
+st.markdown("---")
 
 # Add a note based on the specific data
 if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) == 1:
@@ -121,6 +122,7 @@ def create_grouped_hometown_plot(counts):
 
 # 5. Run the function
 create_grouped_hometown_plot(attendance_hometown_counts)
+st.markdown("---")
 
 # Add a note based on the specific data
 if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) == 1:
