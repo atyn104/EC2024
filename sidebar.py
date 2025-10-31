@@ -17,7 +17,6 @@ page = st.sidebar.radio("Navigate",
 # --- Run the selected page ---
 if page == "Homepage":
     (open('home.py').read())
-    st.write(f"Loading {home}...")
     # You can import and display the contents of home.py here, like:
     # exec(open('pages/home.py').read())
 
