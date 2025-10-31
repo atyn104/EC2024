@@ -100,7 +100,7 @@ with col3:
     # Gabungkan informasi dalam kotak dengan HTML
     overall_gpa_summary = f"""
     <div style='border: 2px solid #DDD; padding: 10px; font-size: 18px;'>
-        <b>Overall CGPA:</b> {average_cgpa:.2f}
+        <b>Highest Overall CGPA:</b> {max_gpa:.2f}
     </div>
     """
     
