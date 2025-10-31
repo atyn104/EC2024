@@ -14,6 +14,11 @@ st.set_page_config(
 )
 
 st.title("🎓 Student Performance Metrics ")
+
+st.markdown("""
+The Student achievement Metrics dataset, which intends to examine the impact of demographics, socioeconomic status, participation in extracurricular activities, and study habits on academic achievement, includes data on academic and non-academic factors of University of Malaya students. This information is used to create a prediction model of student performance and pinpoint the variables that affect students' success or failure in postsecondary education.
+""")
+
 st.markdown("---")
 
 # Function to load data with caching
