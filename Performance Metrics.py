@@ -104,6 +104,11 @@ def create_hometown_gender_plot(counts):
 
 # 4. Run the function
 create_hometown_gender_plot(hometown_gender_counts)
+st.markdown("""
+-The group bar plot graph above shows a comparison of the number of male and female students from cities and villages in the computer science and engineering department. 
+ We can see that the total number of male students is 120 people from cities compared to the total number of female students, which is 73 people from cities. 
+ For those from villages, the number of male students also leads, with 180 people from villages and only 70 women from villages.
+""")
 st.markdown("---")
 
 # ---NO 3 Income Level Distribution by Gender ---
