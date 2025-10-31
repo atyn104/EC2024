@@ -43,6 +43,7 @@ create_regression_plot(df)
 st.markdown("""
 -The scatter plot graph above shows the relationship between English skill and overall GPA in the computer science and engineering departments. The straight red line approaches horizontal and slopes slightly upwards. In this graph, it shows a low correlation between English skill rating and overall score. Overall, students with higher English scores are affected to obtain slightly higher CGPA.
 """)
+st.markdown("---")
 
 ###
 
