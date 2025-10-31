@@ -59,7 +59,7 @@ st.markdown("---")
 
 # ---NO 2 Student Count by Hometown and Gender ---
 
-st.title(" ii. Student Count by Hometown and Gender ")
+st.subheader(" ii. Student Count by Hometown and Gender ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
@@ -102,7 +102,7 @@ st.markdown("---")
 
 # ---NO 3 Income Level Distribution by Gender ---
 
-st.title(" iii. Income Level Distribution by Gender ")
+st.subheader(" iii. Income Level Distribution by Gender ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
