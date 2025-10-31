@@ -6,7 +6,7 @@ import seaborn as sns
 
 st.header("Objective 3")
 st.markdown("---")
-st.title("1. Student Count by Attendance Rate and Gender")
+st.subheader(" i. Student Count by Attendance Rate and Gender ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
@@ -71,7 +71,7 @@ if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) ==
 
 # --- Streamlit App Code ---
 
-st.title("2. Student Count by Attendance Rate and Hometown")
+st.subheader(" ii. Student Count by Attendance Rate and Hometown ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
@@ -128,7 +128,7 @@ if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) ==
 
 # --- Streamlit App Code ---
 
-st.title("3. Average SSC and HSC GPA by Attendance Rate Analysis")
+st.subheader(" iii. Average SSC and HSC GPA by Attendance Rate Analysis ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
