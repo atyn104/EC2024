@@ -64,6 +64,11 @@ def create_grouped_attendance_plot(data):
 
 # 5. Run the function
 create_grouped_attendance_plot(attendance_gender_counts)
+st.markdown("""
+-The bar graph plot above shows the number of students according to attendance rate and gender. In the scope of very low attendance values ​​in the range of below 40% and 40%-59%, male students outnumber female students. 
+This shows students who are repeatedly absent and most of them are male. In medium to high attendance, it is divided into two, namely the largest group and the best attendance. 
+The largest group, this is the largest group for both genders, which is 64 female students and 143 male students. The best attendance, approximately 57 female students and 102 male students.
+st.markdown("---")
 
 # Add a note based on the specific data
 if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) == 1:
