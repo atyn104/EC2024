@@ -15,7 +15,7 @@ st.set_page_config(
 
 st.title(" Objective 1")
 st.markdown("""
-To analyze and compare the demographic profiles and socioeconomic backgrounds of students, with a focus on gender distribution within the Computer Science and Engineering department, place of origin, and income level.
+*To analyze and compare the demographic profiles and socioeconomic backgrounds of students, with a focus on gender distribution within the Computer Science and Engineering department, place of origin, and income level.
 """)
 st.markdown("---")
 
