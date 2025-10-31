@@ -33,7 +33,7 @@ if Computer_Science_and_Engineering_df.empty:
     st.stop()
 
 # ---NO 1 Plotly Pie Chart (Distribution of Gender) ---
-st.subheader("2. Distribution of Gender in Computer Science and Engineering Department")
+st.subheader("i. Distribution of Gender in Computer Science and Engineering Department ")
 
 if 'Gender' in Computer_Science_and_Engineering_df.columns:
     # Count the occurrences of each gender
@@ -59,7 +59,7 @@ st.markdown("---")
 
 # ---NO 2 Student Count by Hometown and Gender ---
 
-st.title("Student Count by Hometown and Gender")
+st.title(" ii. Student Count by Hometown and Gender ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
@@ -102,7 +102,7 @@ st.markdown("---")
 
 # ---NO 3 Income Level Distribution by Gender ---
 
-st.title("Income Level Distribution by Gender")
+st.title(" iii. Income Level Distribution by Gender ")
 
 # 1. Load the data (assuming the file is available in the app's environment)
 try:
