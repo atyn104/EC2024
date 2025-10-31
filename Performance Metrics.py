@@ -171,3 +171,10 @@ def create_stacked_bar_chart(counts):
 
 # 4. Run the function
 create_stacked_bar_chart(gender_income_counts)
+st.markdown("""
+-The bar graph above shows the comparison of the number of male and female students from various household incomes in the computer science and engineering department. 
+This income is divided into 4 categories, namely low, lower secondary, upper secondary and high. We can see that the percentage of female students with low income is only around 5%. 
+For lower and upper secondary, the percentage of female students is around 35% and 25% respectively. For high income, the percentage of female students with high income is only 35%. 
+For the male category, the percentage of total male students with low income is greater than the percentage of female students, which is 15%. For lower secondary and upper secondary categories, the gap is not high, around 32% and 25%. 
+For high income, the percentage of male students is only around 28%. From here, we can see that the percentage of female students who come from higher incomes is more affected than the percentage of male students.
+""")
