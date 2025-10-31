@@ -6,8 +6,8 @@ st.set_page_config(
 
 # 1. Tentukan Semua Halaman
 home = st.Page('home.py', title='Homepage', default=True, icon=":material/home:")
-objective2 = st.Page('Objective 2.py', title='Objective 2', icon=":material/ads_click:")
-objective3 = st.Page('Objective 3.py', title='Objective 3', icon=":material/ads_click:")
+objective2 = st.Page('obj number 2.py', title='Objective 2', icon=":material/ads_click:")
+objective3 = st.Page('obj number 3.py', title='Objective 3', icon=":material/ads_click:")
 
 # Halaman-halaman yang ingin dijadikan sub-menu
 visualise_graph = st.Page('Visualise_Graph.py', title='Graph', icon=":material/insights:")
