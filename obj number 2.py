@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.header("Objective 2:")
+st.markdown("""
+-To study and understand the factors that influence students' academic performance, especially in the assessment of overall CGPA.
+""")
 st.markdown("---")
 st.subheader("i. Relationship Between English Skill Rating vs. Overall GPA Analysis ")
 
