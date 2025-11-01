@@ -75,7 +75,7 @@ with col1:
     st.markdown(purata_hsc_ssc_summary, unsafe_allow_html=True)
     st.markdown("    ")
     st.markdown("""
-    The first summary box shows the average HSC and SSC which is 4.56. 
+    -The first summary box shows the average HSC and SSC which is 4.56. 
     It shows that the computer science and engineering department accepts students with the best academic performance 
     at both the elementary and school levels.
     """)
@@ -98,6 +98,11 @@ with col2:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
+    st.markdown("    ")
+    st.markdown("""
+    -The second summary box shows the total number of students in the computer science and engineering department. 
+     The number of male students is around 302 more than the number of female students which is only around 141.
+    """)
 
 with col3:
     # Kira purata GPA (Overall)
