@@ -6,7 +6,7 @@ import seaborn as sns
 
 st.header("Objective 2:")
 st.markdown("""
--To analyze the relationship between key Academic and Behavioral factors and student performance by Overall CGPA..
+-To analyze the relationship between key Academic and Behavioral factors and student performance by Overall CGPA.
 """)
 st.markdown("---")
 st.subheader("i. Relationship Between English Skill Rating vs. Overall GPA Analysis ")
