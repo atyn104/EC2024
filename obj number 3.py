@@ -186,6 +186,9 @@ def create_grouped_gpa_plot(counts):
 
 # 5. Run the function
 create_grouped_gpa_plot(average_gpa_by_attendance)
+st.markdown("""
+-The bar graph plot above shows the average SSC and HSC values ​​according to attendance rate. The average for the SSC value in dark purple shows a very high average value in all categories of attendance rates which is around 4.6 to 4.8. For the HSC average in yellow shows a high value as well but is quite different from the SSC average. Where in the low attendance category below 40% and 40%-59% shows a slightly lower value compared to the others. In addition, for the high attendance category 60%-79% and 80%-100% the HSC average increases higher around 4.0 and 4.4. Here it shows a clear positive correlation between the higher HSC average according to the better attendance rate at the university.
+""")
 
 # Add a note based on the specific data
 if '80%-100%' in df['Attendance'].unique() and len(df['Attendance'].unique()) == 1:
