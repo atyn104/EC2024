@@ -117,7 +117,11 @@ with col3:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(overall_gpa_summary, unsafe_allow_html=True)
-
+    st.markdown("    ")
+    st.markdown("""
+    -For the third summary box shows the highest CGPA value which is 4.00 that students obtained in total and 
+     this proves that perfect academic excellence is possible for this department.
+    """)
 
 # Show raw data preview
 st.markdown("---")
