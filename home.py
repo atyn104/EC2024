@@ -73,6 +73,11 @@ with col1:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
     st.markdown(purata_hsc_ssc_summary, unsafe_allow_html=True)
+    st.markdown("""
+    The first summary box shows the average HSC and SSC which is 4.56. 
+    It shows that the computer science and engineering department accepts students with the best academic performance 
+    at both the elementary and school levels.
+    """)
 
 with col2:
     # Kira jumlah lelaki dan perempuan secara berasingan
