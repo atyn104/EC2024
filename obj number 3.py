@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 st.header("OBJECTIVE 3")
+st.markdown("""
+-To understand how student attendance rates are distributed across different demographics and academics.
+""")
 st.markdown("---")
 st.subheader(" i. Student Count by Attendance Rate and Gender ")
 
