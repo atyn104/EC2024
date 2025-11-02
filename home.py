@@ -106,13 +106,15 @@ with col3:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(overall_gpa_summary, unsafe_allow_html=True)
-    st.markdown("    ")
-    st.markdown("""
+    
+st.markdown("    ")
+st.markdown("""
     -The average HSC and SSC, which is 4.56, are displayed in the first summary box. 
      It demonstrates that pupils with the highest academic standing at both the primary and school levels are accepted into the computer science and engineering department.
      The total number of students in the computer science and engineering department is displayed in the second summary box.  There are around 302 more male students than female students, who make up just about 141.
      The final summary box displays the highest CGPA of 4.00 that students received overall, demonstrating that this department is capable of achieving complete academic achievement.
      """)
+
 # Show raw data preview
 st.markdown("---")
 st.subheader("1. Raw Data Preview")
