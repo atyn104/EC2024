@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.header(" OBJECTIVE 3 ")
+st.title(" OBJECTIVE 3 ")
 st.markdown("""
 -To understand how student attendance rates are distributed across different demographics and academics.
 """)
