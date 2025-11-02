@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.header(" OBJECTIVE 2 ")
+st.title(" OBJECTIVE 2 ")
 st.markdown("""
 -To analyze the relationship between key Academic and Behavioral factors and student performance by Overall CGPA.
 """)
