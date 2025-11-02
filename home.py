@@ -73,13 +73,7 @@ with col1:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border
     st.markdown(purata_hsc_ssc_summary, unsafe_allow_html=True)
-    st.markdown("    ")
-    st.markdown("""
-    -The first summary box shows the average HSC and SSC which is 4.56. 
-    It shows that the computer science and engineering department accepts students with the best academic performance 
-    at both the elementary and school levels.
-    """)
-
+    
 with col2:
     # Kira jumlah lelaki dan perempuan secara berasingan
     male_count = gender_distribution.get('Male', 0)
@@ -98,12 +92,7 @@ with col2:
     
     # Gunakan st.markdown untuk memaparkan dalam satu kotak dengan border yang seragam
     st.markdown(gender_summary, unsafe_allow_html=True)
-    st.markdown("    ")
-    st.markdown("""
-    -The second summary box shows the total number of students in the computer science and engineering department. 
-     The number of male students is around 302 more than the number of female students which is only around 141.
-    """)
-
+    
 with col3:
     # Kira purata GPA (Overall)
     max_gpa = Computer_Science_and_Engineering_df['Overall'].max()  # Menghitung purata GPA
@@ -119,10 +108,11 @@ with col3:
     st.markdown(overall_gpa_summary, unsafe_allow_html=True)
     st.markdown("    ")
     st.markdown("""
-    -For the third summary box shows the highest CGPA value which is 4.00 that students obtained in total and 
-     this proves that perfect academic excellence is possible for this department.
-    """)
-
+    -The average HSC and SSC, which is 4.56, are displayed in the first summary box. 
+     It demonstrates that pupils with the highest academic standing at both the primary and school levels are accepted into the computer science and engineering department.
+     The total number of students in the computer science and engineering department is displayed in the second summary box.  There are around 302 more male students than female students, who make up just about 141.
+     The final summary box displays the highest CGPA of 4.00 that students received overall, demonstrating that this department is capable of achieving complete academic achievement.
+     """)
 # Show raw data preview
 st.markdown("---")
 st.subheader("1. Raw Data Preview")
