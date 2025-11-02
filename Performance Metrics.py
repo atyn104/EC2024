@@ -13,7 +13,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title(" Objective 1")
+st.title(" OBJECTIVE 1")
 st.markdown("""
 -To analyze and compare the demographic profiles and socioeconomic backgrounds of students, with a focus on gender.
 """)
